@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabil Mosharraf Hossain — AI/ML Researcher &amp; Software Engineer</title>
+  <meta name="description" content="Nabil Mosharraf Hossain — AI researcher at the intersection of Islamic technology, applied AI, and NLP. Co-founder of GTAF, serving 13M+ users globally." />
+  <meta name="keywords" content="Nabil Mosharraf Hossain, AI researcher, speech recognition, NLP, Android developer, wav2vec2, Flutter" />
+  <meta name="author" content="Nabil Mosharraf Hossain" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="MY" />
+  <meta name="geo.placename" content="Kuala Lumpur, Malaysia" />
+
+  <link rel="canonical" href="https://nabilmh.com" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>N</text></svg>" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nabil Mosharraf Hossain — AI/ML Researcher &amp; Software Engineer" />
+  <meta property="og:description" content="AI researcher at the intersection of Islamic technology, applied AI, and NLP. Co-founder of GTAF, serving 13M+ users globally." />
+  <meta property="og:url" content="https://nabilmh.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://nabilmh.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Nabil Mosharraf Hossain" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nabil Mosharraf Hossain — AI/ML Researcher &amp; Software Engineer" />
+  <meta name="twitter:description" content="AI researcher at the intersection of Islamic technology, applied AI, and NLP. Co-founder of GTAF, serving 13M+ users globally." />
+  <meta name="twitter:site" content="@nabilmh" />
+  <meta name="twitter:image" content="https://nabilmh.com/og-image.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://nabilmh.com/#person",
+        "name": "Nabil Mosharraf Hossain",
+        "url": "https://nabilmh.com",
+        "email": "nabil6391@gmail.com",
+        "jobTitle": "AI/ML Researcher & Software Engineer",
+        "description": "Researcher and engineer specializing in speech recognition, NLP, and AI integration into mobile applications. Co-founder of Greentech Apps Foundation with 50M+ downloads.",
+        "image": "https://nabilmh.com/og-image.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kuala Lumpur",
+          "addressCountry": "MY"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "University Malaya",
+            "degree": "MSc Computer Science (Applied Computing)"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "American International University-Bangladesh",
+            "degree": "BSc Electrical & Electronics Engineering"
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/nabil6391/",
+          "https://github.com/nabil6391",
+          "https://nabil6391.medium.com/",
+          "https://nabilmh.substack.com/",
+          "https://www.researchgate.net/"
+        ],
+        "knowsAbout": ["Speech Recognition", "Natural Language Processing", "Machine Learning", "Android Development", "Flutter", "wav2vec2", "Transformer Models", "LLM", "Arabic NLP"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nabilmh.com/#website",
+        "url": "https://nabilmh.com",
+        "name": "Nabil Mosharraf Hossain",
+        "description": "Portfolio and research profile of Nabil Mosharraf Hossain",
+        "publisher": {"@id": "https://nabilmh.com/#person"}
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --accent-dim: rgba(99, 102, 241, 0.12);
+      --accent-dim2: rgba(99, 102, 241, 0.06);
+
+      --bg: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.04);
+
+      --nav-height: 64px;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.2s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b0f1a;
+      --bg-secondary: #111827;
+      --bg-card: #141b2d;
+      --bg-card-hover: #1a2236;
+      --border: #1e2d45;
+      --border-light: #172033;
+
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+      --shadow: 0 4px 16px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITY CLASSES
+    ============================================================ */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border-light);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      padding-left: 16px;
+      border-left: 3px solid var(--accent);
+      line-height: 1.25;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      white-space: nowrap;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #4f52e8;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(99,102,241,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-light);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    nav.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all var(--transition);
+      font-size: 1rem;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* Mobile nav */
+    .nav-hamburger {
+      display: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--text-secondary);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px 20px;
+      z-index: 99;
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 10px 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      padding-top: calc(var(--nav-height) + 80px);
+      padding-bottom: 96px;
+      background: var(--bg);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .hero-name {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 52px;
+    }
+
+    .hero-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 60px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: all var(--transition);
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim2);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .social-link svg {
+      flex-shrink: 0;
+    }
+
+    /* Stats */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      padding: 24px 20px;
+      text-align: center;
+      transition: background var(--transition);
+    }
+
+    .stat-card:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about .about-text {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    #about .about-text p + p {
+      margin-top: 16px;
+    }
+
+    /* ============================================================
+       RESEARCH CARDS
+    ============================================================ */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .research-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--accent-dim2) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+
+    .research-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .research-card:hover::before {
+      opacity: 1;
+    }
+
+    .research-card-number {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+
+    .research-card-title {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .research-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .research-card-desc li {
+      padding: 2px 0 2px 14px;
+      position: relative;
+    }
+
+    .research-card-desc li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.72rem;
+      top: 4px;
+    }
+
+    /* ============================================================
+       EXPERIENCE TIMELINE
+    ============================================================ */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -29px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2.5px solid var(--accent);
+      transition: background var(--transition);
+    }
+
+    .timeline-item:first-child .timeline-dot {
+      background: var(--accent);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-company {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .timeline-period {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg-secondary);
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .timeline-role {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-location {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+    }
+
+    .timeline-bullets li {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      padding: 3px 0 3px 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .timeline-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.65rem;
+      top: 6px;
+    }
+
+    .timeline-stack {
+      margin-top: 12px;
+    }
+
+    /* ============================================================
+       OPEN SOURCE CARDS
+    ============================================================ */
+    .oss-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .oss-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .oss-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .oss-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .oss-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .oss-stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #f59e0b;
+      background: rgba(245, 158, 11, 0.1);
+      padding: 3px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .oss-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .oss-card-footer {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .oss-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 5px 10px;
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 6px;
+      transition: all var(--transition);
+    }
+
+    .oss-link:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+    }
+
+    /* ============================================================
+       PUBLICATIONS
+    ============================================================ */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pub-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+      transition: all var(--transition);
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-item:hover .pub-title {
+      color: var(--accent);
+    }
+
+    .pub-source-badge {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 2px;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .badge-substack {
+      background: rgba(255, 103, 0, 0.12);
+      color: #ff6700;
+      border: 1px solid rgba(255, 103, 0, 0.2);
+    }
+
+    .badge-medium {
+      background: rgba(0, 0, 0, 0.06);
+      color: #1a1a1a;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    [data-theme="dark"] .badge-medium {
+      background: rgba(255,255,255,0.08);
+      color: #e2e8f0;
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .badge-paper {
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(99,102,241,0.25);
+    }
+
+    .badge-researchgate {
+      background: rgba(13, 148, 136, 0.12);
+      color: #0d9488;
+      border: 1px solid rgba(13, 148, 136, 0.25);
+    }
+
+    [data-theme="dark"] .badge-researchgate {
+      background: rgba(13, 148, 136, 0.15);
+      color: #2dd4bf;
+      border-color: rgba(13, 148, 136, 0.3);
+    }
+
+    .pub-content {
+      flex: 1;
+    }
+
+    .pub-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      transition: color var(--transition);
+    }
+
+    .pub-arrow {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-left: 6px;
+      transition: transform var(--transition), color var(--transition);
+      display: inline-block;
+    }
+
+    .pub-item:hover .pub-arrow {
+      transform: translateX(3px);
+      color: var(--accent);
+    }
+
+    /* ============================================================
+       EDUCATION
+    ============================================================ */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .edu-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .edu-item:last-child {
+      border-bottom: none;
+    }
+
+    .edu-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(99,102,241,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+
+    .edu-degree {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .edu-school {
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .edu-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       SKILLS
+    ============================================================ */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .skill-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      transition: all var(--transition);
+    }
+
+    .skill-group:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-group-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact {
+      background: var(--bg-secondary);
+    }
+
+    .contact-inner {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-sub {
+      font-size: 1.0rem;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--accent);
+      padding: 14px 28px;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+      margin-bottom: 32px;
+    }
+
+    .contact-email:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(99,102,241,0.35);
+    }
+
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      padding: 28px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .stagger.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.3s; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .oss-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .hero-name {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .oss-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-source-badge {
+        min-width: 60px;
+        font-size: 0.62rem;
+        padding: 3px 7px;
+      }
+    }
+
+    /* ============================================================
+       SCROLL PROGRESS BAR
+    ============================================================ */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      z-index: 200;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ============================================================
+       BACK TO TOP BUTTON
+    ============================================================ */
+    #back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 28px;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+      z-index: 90;
+      pointer-events: none;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    #back-to-top:hover {
+      background: #4f52e8;
+      box-shadow: 0 6px 20px rgba(99,102,241,0.45);
+    }
+
+    /* ============================================================
+       HERO ACCENT LINE
+    ============================================================ */
+    .hero-accent-line {
+      width: 48px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+
+    /* ============================================================
+       NAV ACTIVE INDICATOR
+    ============================================================ */
+    .nav-links a.active {
+      color: var(--accent) !important;
+      background: var(--accent-dim2) !important;
+      box-shadow: inset 0 -2px 0 var(--accent);
+    }
+
+    /* ============================================================
+       PUBLICATION YEAR META
+    ============================================================ */
+    .pub-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* ============================================================
+       HERO AVATAR
+    ============================================================ */
+    .hero-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 2px solid rgba(99,102,241,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" aria-label="Back to top">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- NAVIGATION -->
+<nav id="main-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Nabil<span>.</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#about" class="nav-link" data-section="about">About</a>
+      <a href="#research" class="nav-link" data-section="research">Research</a>
+      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+      <a href="#opensource" class="nav-link" data-section="opensource">Open Source</a>
+      <a href="#publications" class="nav-link" data-section="publications">Writing</a>
+      <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="#about" data-section="about">About</a>
+  <a href="#research" data-section="research">Research</a>
+  <a href="#experience" data-section="experience">Experience</a>
+  <a href="#opensource" data-section="opensource">Open Source</a>
+  <a href="#publications" data-section="publications">Writing</a>
+  <a href="#contact" data-section="contact">Contact</a>
+</div>
+
+<!-- MAIN CONTENT — static HTML for SEO; JS handles interactive features only -->
+<main id="app">
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero" aria-labelledby="hero-name">
+    <div class="container">
+      <div class="hero-avatar" aria-label="Nabil Mosharraf Hossain">NH</div>
+      <div class="hero-eyebrow">Available for Research Collaborations</div>
+      <h1 class="hero-name" id="hero-name">Nabil Mosharraf Hossain</h1>
+      <p class="hero-tagline">AI/ML Researcher · Software Engineer · Open Source Builder</p>
+      <div class="hero-location">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Kuala Lumpur, Malaysia
+      </div>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary" download aria-label="Download CV">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+        <a href="mailto:nabil6391@gmail.com" class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Get in touch
+        </a>
+      </div>
+      <div class="hero-socials stagger">
+        <a href="https://github.com/nabil6391" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.74-1.33-1.74-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.84 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub <span style="opacity:0.6;font-size:0.7rem">· 500+ stars</span>
+        </a>
+        <a href="https://www.linkedin.com/in/nabil6391/" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://nabil6391.medium.com/" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          Medium <span style="opacity:0.6;font-size:0.7rem">· 100k reads</span>
+        </a>
+        <a href="https://www.youtube.com/channel/UCwvX-kW35pvBcaRf88ag4wg" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          YouTube
+        </a>
+        <a href="https://nabilmh.substack.com/" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          Substack
+        </a>
+      </div>
+      <div class="hero-stats stagger" role="list" aria-label="Key statistics">
+        <div class="stat-card" role="listitem">
+          <span class="stat-value">50M+</span>
+          <span class="stat-label">App Downloads</span>
+        </div>
+        <div class="stat-card" role="listitem">
+          <span class="stat-value">2M+</span>
+          <span class="stat-label">Monthly Active Users</span>
+        </div>
+        <div class="stat-card" role="listitem">
+          <span class="stat-value">500+</span>
+          <span class="stat-label">GitHub Stars</span>
+        </div>
+        <div class="stat-card" role="listitem">
+          <span class="stat-value">100k+</span>
+          <span class="stat-label">Medium Reads</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Background</div>
+        <h2 class="section-title" id="about-title">About Me</h2>
+      </div>
+      <div class="about-text fade-up">
+        <p>My research sits at the intersection of Islamic technology, applied AI, and natural language processing, with a focus on building tools that serve Muslim communities at scale.</p>
+        <p>As co-founder and CEO of <a href="https://gtaf.org" target="_blank" rel="noopener noreferrer">Greentech Apps Foundation (GTAF)</a>, a UK-registered charity serving over 13 million users globally, I lead applied research across three areas: <strong>Quranic &amp; Islamic NLP</strong> — including Wav2Vec2-based Quranic ASR for real-time recitation tracking and automated Seerah-Hadith mapping using LLMs and vector search; <strong>AI Infrastructure for Islamic Apps</strong> — LLM-powered customer support automation, Quranic audio segmentation, and knowledge graph generation; and <strong>User Behaviour &amp; FaithTech Analytics</strong> — surfacing insights from over 50,000 real user reading plans.</p>
+        <p>A thread that runs through all my work is a deep interest in <strong>optimisation</strong> — finding the bottleneck and eliminating it. This shows up everywhere: reducing a Quran word-by-word view from seconds to milliseconds using custom rendering, shrinking an Android app from 21MB to 4MB, cutting a photo picker load from 4 seconds to 150ms through coroutines and lazy batching, improving a job platform's home screen by 25%, or applying the Needleman-Wunsch algorithm to align audio with text at word-level precision. The domain changes; the instinct to ask "why is this slow, and what's the minimum needed to fix it?" doesn't.</p>
+        <p>MSc Computer Science from University Malaya. My publications are available on ResearchGate as open-access preprints.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESEARCH & PROJECTS
+  ============================================================ -->
+  <section id="research" class="section" aria-labelledby="research-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">AI &amp; ML</div>
+        <h2 class="section-title" id="research-title">Research &amp; Projects</h2>
+      </div>
+      <div class="research-grid">
+
+        <article class="research-card fade-up">
+          <div class="research-card-number">Project 01</div>
+          <h3 class="research-card-title">Quran Tajweed Mispronunciation Detection</h3>
+          <ul class="research-card-desc">
+            <li>Fine-tuned Meta's wav2vec2.0 model for Arabic speech</li>
+            <li>Achieved Word Error Rate (WER) of 0.08 on pronunciation accuracy</li>
+            <li>Built evaluation pipeline across different reciters</li>
+          </ul>
+          <div class="tag-group">
+            <span class="tag">Speech Recognition</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Fine-tuning</span>
+            <span class="tag">wav2vec2</span>
+          </div>
+        </article>
+
+        <article class="research-card fade-up">
+          <div class="research-card-number">Project 02</div>
+          <h3 class="research-card-title">Force Alignment Audio Timestamp Generation</h3>
+          <ul class="research-card-desc">
+            <li>Generated word-by-word audio timestamps using Needleman-Wunsch algorithm</li>
+            <li>Created audiobook-style alignment pipeline for Quran recitation audio</li>
+          </ul>
+          <div class="tag-group">
+            <span class="tag">NLP</span>
+            <span class="tag">Dynamic Programming</span>
+            <span class="tag">Audio Processing</span>
+          </div>
+        </article>
+
+        <article class="research-card fade-up">
+          <div class="research-card-number">Project 03</div>
+          <h3 class="research-card-title">LLM-based Customer Support &amp; Feedback Analysis</h3>
+          <ul class="research-card-desc">
+            <li>Implemented open-source LLMs for automated customer support</li>
+            <li>Improved auto-reply performance 4x using SetFit vs full LLMs</li>
+          </ul>
+          <div class="tag-group">
+            <span class="tag">LLM</span>
+            <span class="tag">NLP</span>
+            <span class="tag">SetFit</span>
+            <span class="tag">Text Classification</span>
+          </div>
+        </article>
+
+        <article class="research-card fade-up">
+          <div class="research-card-number">Project 04</div>
+          <h3 class="research-card-title">Bengali ASR Research</h3>
+          <ul class="research-card-desc">
+            <li>Researched and evaluated multiple speech-to-text models (Nemo, Whisper, K2-icefall)</li>
+            <li>Bengali language ASR benchmarking</li>
+          </ul>
+          <div class="tag-group">
+            <span class="tag">ASR</span>
+            <span class="tag">Speech Recognition</span>
+            <span class="tag">Bengali NLP</span>
+          </div>
+        </article>
+
+        <article class="research-card fade-up">
+          <div class="research-card-number">Project 05</div>
+          <h3 class="research-card-title">OPUS to CAF Audio Converter (Golang + Swift)</h3>
+          <ul class="research-card-desc">
+            <li>Optimized audio compression for Apple ecosystem</li>
+            <li>40% performance improvement over baseline</li>
+          </ul>
+          <div class="tag-group">
+            <span class="tag">Audio Processing</span>
+            <span class="tag">Golang</span>
+            <span class="tag">Swift</span>
+            <span class="tag">Performance</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPERIENCE
+  ============================================================ -->
+  <section id="experience" class="section" aria-labelledby="experience-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Career</div>
+        <h2 class="section-title" id="experience-title">Experience</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-header">
+            <h3 class="timeline-company">Jobstreet by SEEK</h3>
+            <time class="timeline-period" datetime="2023-07">July 2023 – Present</time>
+          </div>
+          <div class="timeline-role">Senior Software Engineer &amp; AI Specialist</div>
+          <div class="timeline-location">Malaysia (Australia HQ)</div>
+          <ul class="timeline-bullets">
+            <li>Won AI Trailblazer Award for developing AI Interview Prep tool</li>
+            <li>Improved Main Screen Loading performance by 25%</li>
+            <li>Team of 30 across Australia, Hong Kong, Philippines, Malaysia</li>
+          </ul>
+          <div class="timeline-stack tag-group" style="margin-top:14px;">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag">GraphQL</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-header">
+            <h3 class="timeline-company">Photobook Worldwide</h3>
+            <time class="timeline-period" datetime="2019-11">Nov 2019 – July 2023</time>
+          </div>
+          <div class="timeline-role">Lead Android Developer</div>
+          <div class="timeline-location">Malaysia</div>
+          <ul class="timeline-bullets">
+            <li>Led agile team of 5 Android developers</li>
+            <li>Optimized photo loading 50% faster with Kotlin coroutines</li>
+            <li>Implemented CI/CD with Jenkins, reduced regression bugs 75%</li>
+            <li>Spearheaded Jetpack Compose adoption, cut dev time 50%</li>
+          </ul>
+          <div class="timeline-stack tag-group" style="margin-top:14px;">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-header">
+            <h3 class="timeline-company">Greentech Apps Foundation</h3>
+            <time class="timeline-period" datetime="2015-01">Jan 2015 – Oct 2019 &amp; Nov 2022 – June 2024</time>
+          </div>
+          <div class="timeline-role">Co-Founder &amp; CTO → R&amp;D Lead</div>
+          <div class="timeline-location">UK (Remote)</div>
+          <ul class="timeline-bullets">
+            <li>Scaled platform to 50M+ downloads and 2M+ Monthly Active Users</li>
+            <li>Built and led cross-functional engineering teams of 15 developers</li>
+            <li>Spearheaded R&amp;D in speech recognition, NLP, Arabic text processing</li>
+          </ul>
+          <div class="timeline-stack tag-group" style="margin-top:14px;">
+            <span class="tag">Android</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Speech Recognition</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-header">
+            <h3 class="timeline-company">MyCash Online</h3>
+            <time class="timeline-period" datetime="2018-01">Jan 2018 – Aug 2018</time>
+          </div>
+          <div class="timeline-role">Senior Android Developer</div>
+          <div class="timeline-location">Malaysia</div>
+          <ul class="timeline-bullets">
+            <li>Reduced app size from 21MB to 4MB</li>
+            <li>Integrated payment gateways for Malaysia and Australia markets</li>
+          </ul>
+          <div class="timeline-stack tag-group" style="margin-top:14px;">
+            <span class="tag">Android</span>
+            <span class="tag">Java</span>
+            <span class="tag">Payment SDKs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OPEN SOURCE
+  ============================================================ -->
+  <section id="opensource" class="section" aria-labelledby="opensource-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Community</div>
+        <h2 class="section-title" id="opensource-title">Open Source</h2>
+      </div>
+      <div class="oss-grid">
+
+        <article class="oss-card fade-up">
+          <div class="oss-card-header">
+            <h3 class="oss-card-title">GraphView</h3>
+            <span class="oss-stars">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              470+
+            </span>
+          </div>
+          <p class="oss-card-desc">
+            Flutter graph visualization library. Displays Tree layout, Directed and Layered graphs — family trees, hierarchies, and more.
+            <span style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;display:block">11.9k+ pub downloads</span>
+          </p>
+          <div class="oss-card-footer">
+            <a href="https://github.com/nabil6391/graphview" target="_blank" rel="noopener noreferrer" class="oss-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              GitHub
+            </a>
+            <a href="https://pub.dev/packages/graphview" target="_blank" rel="noopener noreferrer" class="oss-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              pub.dev
+            </a>
+          </div>
+        </article>
+
+        <article class="oss-card fade-up">
+          <div class="oss-card-header">
+            <h3 class="oss-card-title">FlutterDownloadManager</h3>
+            <span class="oss-stars">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              69+
+            </span>
+          </div>
+          <p class="oss-card-desc">
+            Cross-platform download manager with resumable, parallel, and batch downloads plus real-time progress updates.
+            <span style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;display:block">4.63k+ pub downloads</span>
+          </p>
+          <div class="oss-card-footer">
+            <a href="https://github.com/nabil6391/flutter_download_manager" target="_blank" rel="noopener noreferrer" class="oss-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              GitHub
+            </a>
+            <a href="https://pub.dev/packages/flutter_download_manager" target="_blank" rel="noopener noreferrer" class="oss-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              pub.dev
+            </a>
+          </div>
+        </article>
+
+        <article class="oss-card fade-up">
+          <div class="oss-card-header">
+            <h3 class="oss-card-title">LottieSwipeRefreshLayout</h3>
+          </div>
+          <p class="oss-card-desc">
+            Custom Android SwipeRefreshLayout with Lottie animation support for delightful pull-to-refresh experiences.
+          </p>
+          <div class="oss-card-footer">
+            <a href="https://github.com/nabil6391/LottieSwipeRefreshLayout" target="_blank" rel="noopener noreferrer" class="oss-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PUBLICATIONS & WRITING
+  ============================================================ -->
+  <section id="publications" class="section" aria-labelledby="publications-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Articles &amp; Papers</div>
+        <h2 class="section-title" id="publications-title">Publications &amp; Writing</h2>
+      </div>
+      <div class="pub-list fade-up" role="list">
+
+        <article class="pub-item" role="listitem">
+          <a href="https://www.researchgate.net/publication/398941570_ADAB_A_Culturally-Aligned_Automated_Response_Generation_Framework_for_Islamic_App_Reviews_by_Integrating_ABSA_and_Hybrid_RAG" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-researchgate">ResearchGate</span>
+            <div class="pub-content">
+              <span class="pub-title">ADAB: A Culturally-Aligned Automated Response Generation Framework for Islamic App Reviews by Integrating ABSA and Hybrid RAG<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="pub-item" role="listitem">
+          <a href="https://www.researchgate.net/publication/388780641_A_Novel_LLM-Based_Approach_for_Automated_Seerah-Hadith_Mapping_Connecting_Islamic_Historical_Narratives_Through_Vector_Search_and_Semantic_Analysis" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-researchgate">ResearchGate</span>
+            <div class="pub-content">
+              <span class="pub-title">A Novel LLM-Based Approach for Automated Seerah-Hadith Mapping: Connecting Islamic Historical Narratives Through Vector Search and Semantic Analysis<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="pub-item" role="listitem">
+          <a href="https://doi.org/10.13140/RG.2.2.26323.28965" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-researchgate">ResearchGate</span>
+            <div class="pub-content">
+              <span class="pub-title">Speech Recognition Using an End-to-End Transformer Model for Quran Recitation<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="pub-item" role="listitem">
+          <a href="https://nabilmh.substack.com/p/the-30-wardrobe-hypothesis-building" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-substack">Substack</span>
+            <div class="pub-content">
+              <span class="pub-title">The 30% Wardrobe Hypothesis: Building a Personal Clothes Tracking System<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="pub-item" role="listitem">
+          <a href="https://nabilmh.substack.com/p/optimizing-my-opus-to-caf-converter" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-substack">Substack</span>
+            <div class="pub-content">
+              <span class="pub-title">Optimizing my Opus to CAF Converter in Go: A 40% Performance Boost<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="pub-item" role="listitem">
+          <a href="https://nabil6391.medium.com/creating-audiobooks-by-aligning-audio-with-text-7027ec39a10" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-medium">Medium</span>
+            <div class="pub-content">
+              <span class="pub-title">Creating Audiobooks by Aligning Audio with Text<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="pub-item" role="listitem">
+          <a href="https://nabil6391.medium.com/text-similarity-algorithms-for-matching-islamic-hadith-documents-for-hadith-interlinking-1c8034452727" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-medium">Medium</span>
+            <div class="pub-content">
+              <span class="pub-title">Text Similarity Algorithms for Matching Islamic Hadith Documents<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="pub-item" role="listitem">
+          <a href="https://nabil6391.medium.com/comparison-of-string-encryption-performance-using-asymmetric-methods-in-android-936f84763570" target="_blank" rel="noopener noreferrer" class="pub-item" style="width:100%;padding:0;border:none;">
+            <span class="pub-source-badge badge-medium">Medium</span>
+            <div class="pub-content">
+              <span class="pub-title">Comparison of String Encryption Performance using Symmetric Methods in Android<span class="pub-arrow">→</span></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EDUCATION
+  ============================================================ -->
+  <section id="education" class="section" aria-labelledby="education-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Academic</div>
+        <h2 class="section-title" id="education-title">Education</h2>
+      </div>
+      <div class="edu-list">
+
+        <div class="edu-item fade-up">
+          <div class="edu-icon" aria-hidden="true">🎓</div>
+          <div>
+            <div class="edu-degree">MSc Computer Science (Applied Computing)</div>
+            <div class="edu-school">University Malaya</div>
+            <div class="edu-meta"><time datetime="2019/2022">2019 – 2022</time></div>
+          </div>
+        </div>
+
+        <div class="edu-item fade-up">
+          <div class="edu-icon" aria-hidden="true">🎓</div>
+          <div>
+            <div class="edu-degree">BSc Electrical &amp; Electronics Engineering</div>
+            <div class="edu-school">American International University-Bangladesh</div>
+            <div class="edu-meta"><time datetime="2011/2014">2011 – 2014</time> · CGPA 3.94/4.0 · Magna Cum Laude</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS
+  ============================================================ -->
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Toolkit</div>
+        <h2 class="section-title" id="skills-title">Skills</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">AI / ML</div>
+          <div class="tag-group">
+            <span class="tag">Speech Recognition (wav2vec2)</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Hugging Face Transformers</span>
+            <span class="tag">Model Fine-tuning</span>
+            <span class="tag">SetFit</span>
+            <span class="tag">LLM Integration</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">Languages</div>
+          <div class="tag-group">
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">Dart</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Golang</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">Mobile</div>
+          <div class="tag-group">
+            <span class="tag">Android (10+ yrs)</span>
+            <span class="tag">Flutter (7+ yrs)</span>
+            <span class="tag">Jetpack Compose</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-up">
+          <div class="skill-group-title">Backend &amp; Infra</div>
+          <div class="tag-group">
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">GraphQL</span>
+            <span class="tag">Elasticsearch</span>
+            <span class="tag">Jenkins / CI/CD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section id="contact" class="section" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-inner fade-up">
+        <h2 class="contact-title" id="contact-title">Let's Connect</h2>
+        <p class="contact-sub">Open to research collaborations, interesting engineering challenges, and meaningful conversations.</p>
+        <address style="font-style:normal;">
+          <a href="mailto:nabil6391@gmail.com" class="contact-email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            nabil6391@gmail.com
+          </a>
+        </address>
+        <div class="contact-socials">
+          <a href="https://github.com/nabil6391" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.74-1.33-1.74-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.84 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/nabil6391/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://nabil6391.medium.com/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+            Medium
+          </a>
+          <a href="https://www.youtube.com/channel/UCwvX-kW35pvBcaRf88ag4wg" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            YouTube
+          </a>
+          <a href="https://nabilmh.substack.com/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+            Substack
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>Built with care &middot; <a href="https://nabilmh.com">nabilmh.com</a> &middot; &copy; <span id="footer-year"></span> Nabil Mosharraf Hossain</div>
+</footer>
+
+<script>
+/* ================================================================
+   DATA — Update content here — changes will need to be reflected in the HTML below
+================================================================ */
+const DATA = {
+  name: "Nabil Mosharraf Hossain",
+  tagline: "AI/ML Researcher · Software Engineer · Open Source Builder",
+  location: "Kuala Lumpur, Malaysia",
+  email: "nabil6391@gmail.com",
+  cvUrl: "#", // Replace with actual CV link
+
+  socials: [
+    { label: "GitHub", url: "https://github.com/nabil6391", note: "500+ stars", icon: "github" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/nabil6391/", icon: "linkedin" },
+    { label: "Medium", url: "https://nabil6391.medium.com/", note: "100k reads", icon: "medium" },
+    { label: "YouTube", url: "https://www.youtube.com/channel/UCwvX-kW35pvBcaRf88ag4wg", icon: "youtube" },
+    { label: "Substack", url: "https://nabilmh.substack.com/", icon: "substack" },
+  ],
+
+  stats: [
+    { value: "50M+", label: "App Downloads" },
+    { value: "2M+", label: "Monthly Active Users" },
+    { value: "500+", label: "GitHub Stars" },
+    { value: "100k+", label: "Medium Reads" },
+  ],
+
+  about: [
+    "Researcher and engineer specializing in speech recognition, NLP, and AI integration into mobile applications.",
+    "10+ years building products used by millions — from co-founding a 50M-download EdTech nonprofit to leading AI R&D at scale.",
+    "MSc Computer Science from University Malaya; always at the intersection of applied research and production-grade engineering.",
+  ],
+
+  research: [
+    {
+      title: "Quran Tajweed Mispronunciation Detection",
+      bullets: [
+        "Fine-tuned Meta's wav2vec2.0 model for Arabic speech",
+        "Achieved Word Error Rate (WER) of 0.08 on pronunciation accuracy",
+        "Built evaluation pipeline across different reciters",
+      ],
+      tags: ["Speech Recognition", "NLP", "Fine-tuning", "wav2vec2"],
+    },
+    {
+      title: "Force Alignment Audio Timestamp Generation",
+      bullets: [
+        "Generated word-by-word audio timestamps using Needleman-Wunsch algorithm",
+        "Created audiobook-style alignment pipeline for Quran recitation audio",
+      ],
+      tags: ["NLP", "Dynamic Programming", "Audio Processing"],
+    },
+    {
+      title: "LLM-based Customer Support & Feedback Analysis",
+      bullets: [
+        "Implemented open-source LLMs for automated customer support",
+        "Improved auto-reply performance 4x using SetFit vs full LLMs",
+      ],
+      tags: ["LLM", "NLP", "SetFit", "Text Classification"],
+    },
+    {
+      title: "Bengali ASR Research",
+      bullets: [
+        "Researched and evaluated multiple speech-to-text models (Nemo, Whisper, K2-icefall)",
+        "Bengali language ASR benchmarking",
+      ],
+      tags: ["ASR", "Speech Recognition", "Bengali NLP"],
+    },
+    {
+      title: "OPUS to CAF Audio Converter (Golang + Swift)",
+      bullets: [
+        "Optimized audio compression for Apple ecosystem",
+        "40% performance improvement over baseline",
+      ],
+      tags: ["Audio Processing", "Golang", "Swift", "Performance"],
+    },
+  ],
+
+  experience: [
+    {
+      company: "Jobstreet by SEEK",
+      role: "Senior Software Engineer & AI Specialist",
+      period: "July 2023 – Present",
+      location: "Malaysia (Australia HQ)",
+      bullets: [
+        "Won AI Trailblazer Award for developing AI Interview Prep tool",
+        "Improved Main Screen Loading performance by 25%",
+        "Team of 30 across Australia, Hong Kong, Philippines, Malaysia",
+      ],
+      stack: ["Kotlin", "Jetpack Compose", "GraphQL", "Node.js", "TypeScript"],
+    },
+    {
+      company: "Photobook Worldwide",
+      role: "Lead Android Developer",
+      period: "Nov 2019 – July 2023",
+      location: "Malaysia",
+      bullets: [
+        "Led agile team of 5 Android developers",
+        "Optimized photo loading 50% faster with Kotlin coroutines",
+        "Implemented CI/CD with Jenkins, reduced regression bugs 75%",
+        "Spearheaded Jetpack Compose adoption, cut dev time 50%",
+      ],
+      stack: ["Kotlin", "Jetpack Compose", "Jenkins", "CI/CD"],
+    },
+    {
+      company: "Greentech Apps Foundation",
+      role: "Co-Founder & CTO → R&D Lead",
+      period: "Jan 2015 – Oct 2019 & Nov 2022 – June 2024",
+      location: "UK (Remote)",
+      bullets: [
+        "Scaled platform to 50M+ downloads and 2M+ Monthly Active Users",
+        "Built and led cross-functional engineering teams of 15 developers",
+        "Spearheaded R&D in speech recognition, NLP, Arabic text processing",
+      ],
+      stack: ["Android", "NLP", "Speech Recognition", "Python"],
+    },
+    {
+      company: "MyCash Online",
+      role: "Senior Android Developer",
+      period: "Jan 2018 – Aug 2018",
+      location: "Malaysia",
+      bullets: [
+        "Reduced app size from 21MB to 4MB",
+        "Integrated payment gateways for Malaysia and Australia markets",
+      ],
+      stack: ["Android", "Java", "Payment SDKs"],
+    },
+  ],
+
+  openSource: [
+    {
+      title: "GraphView",
+      desc: "Flutter graph visualization library. Displays Tree layout, Directed and Layered graphs — family trees, hierarchies, and more.",
+      stars: "470+",
+      downloads: "11.9k+ pub downloads",
+      links: [
+        { label: "GitHub", url: "https://github.com/nabil6391/graphview" },
+        { label: "pub.dev", url: "https://pub.dev/packages/graphview" },
+      ],
+    },
+    {
+      title: "FlutterDownloadManager",
+      desc: "Cross-platform download manager with resumable, parallel, and batch downloads plus real-time progress updates.",
+      stars: "69+",
+      downloads: "4.63k+ pub downloads",
+      links: [
+        { label: "GitHub", url: "https://github.com/nabil6391/flutter_download_manager" },
+        { label: "pub.dev", url: "https://pub.dev/packages/flutter_download_manager" },
+      ],
+    },
+    {
+      title: "LottieSwipeRefreshLayout",
+      desc: "Custom Android SwipeRefreshLayout with Lottie animation support for delightful pull-to-refresh experiences.",
+      stars: "",
+      downloads: "",
+      links: [
+        { label: "GitHub", url: "https://github.com/nabil6391/LottieSwipeRefreshLayout" },
+      ],
+    },
+  ],
+
+  publications: [
+    {
+      title: "ADAB: A Culturally-Aligned Automated Response Generation Framework for Islamic App Reviews by Integrating ABSA and Hybrid RAG",
+      source: "ResearchGate",
+      url: "https://www.researchgate.net/publication/398941570_ADAB_A_Culturally-Aligned_Automated_Response_Generation_Framework_for_Islamic_App_Reviews_by_Integrating_ABSA_and_Hybrid_RAG",
+    },
+    {
+      title: "A Novel LLM-Based Approach for Automated Seerah-Hadith Mapping: Connecting Islamic Historical Narratives Through Vector Search and Semantic Analysis",
+      source: "ResearchGate",
+      url: "https://www.researchgate.net/publication/388780641_A_Novel_LLM-Based_Approach_for_Automated_Seerah-Hadith_Mapping_Connecting_Islamic_Historical_Narratives_Through_Vector_Search_and_Semantic_Analysis",
+    },
+    {
+      title: "Speech Recognition Using an End-to-End Transformer Model for Quran Recitation",
+      source: "ResearchGate",
+      url: "https://doi.org/10.13140/RG.2.2.26323.28965",
+    },
+    {
+      title: "The 30% Wardrobe Hypothesis: Building a Personal Clothes Tracking System",
+      source: "Substack",
+      url: "https://nabilmh.substack.com/p/the-30-wardrobe-hypothesis-building",
+    },
+    {
+      title: "Optimizing my Opus to CAF Converter in Go: A 40% Performance Boost",
+      source: "Substack",
+      url: "https://nabilmh.substack.com/p/optimizing-my-opus-to-caf-converter",
+    },
+    {
+      title: "Creating Audiobooks by Aligning Audio with Text",
+      source: "Medium",
+      url: "https://nabil6391.medium.com/creating-audiobooks-by-aligning-audio-with-text-7027ec39a10",
+    },
+    {
+      title: "Text Similarity Algorithms for Matching Islamic Hadith Documents",
+      source: "Medium",
+      url: "https://nabil6391.medium.com/text-similarity-algorithms-for-matching-islamic-hadith-documents-for-hadith-interlinking-1c8034452727",
+    },
+    {
+      title: "Comparison of String Encryption Performance using Symmetric Methods in Android",
+      source: "Medium",
+      url: "https://nabil6391.medium.com/comparison-of-string-encryption-performance-using-asymmetric-methods-in-android-936f84763570",
+    },
+  ],
+
+  education: [
+    {
+      degree: "MSc Computer Science (Applied Computing)",
+      school: "University Malaya",
+      years: "2019 – 2022",
+      note: "",
+    },
+    {
+      degree: "BSc Electrical & Electronics Engineering",
+      school: "American International University-Bangladesh",
+      years: "2011 – 2014",
+      note: "CGPA 3.94/4.0 · Magna Cum Laude",
+    },
+  ],
+
+  skills: [
+    {
+      group: "AI / ML",
+      items: ["Speech Recognition (wav2vec2)", "NLP", "Hugging Face Transformers", "Model Fine-tuning", "SetFit", "LLM Integration"],
+    },
+    {
+      group: "Languages",
+      items: ["Python", "Java", "Kotlin", "Dart", "JavaScript", "Golang"],
+    },
+    {
+      group: "Mobile",
+      items: ["Android (10+ yrs)", "Flutter (7+ yrs)", "Jetpack Compose"],
+    },
+    {
+      group: "Backend & Infra",
+      items: ["Node.js", "TypeScript", "GraphQL", "Elasticsearch", "Jenkins / CI/CD"],
+    },
+  ],
+};
+
+/* ================================================================
+   NAV SECTIONS CONFIG
+================================================================ */
+const NAV_SECTIONS = [
+  { id: "about", label: "About" },
+  { id: "research", label: "Research" },
+  { id: "experience", label: "Experience" },
+  { id: "opensource", label: "Open Source" },
+  { id: "publications", label: "Writing" },
+  { id: "contact", label: "Contact" },
+];
+
+/* ================================================================
+   NAVIGATION — scroll spy + smooth scroll + mobile menu
+================================================================ */
+function initNav() {
+  // Smooth scroll + close mobile
+  document.querySelectorAll('[data-section]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(a.dataset.section);
+      if (target) {
+        const offset = 72;
+        const y = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+  });
+}
+
+/* ================================================================
+   SCROLL SPY
+================================================================ */
+function initScrollSpy() {
+  const sectionIds = NAV_SECTIONS.map(s => s.id);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-link[data-section="${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+}
+
+/* ================================================================
+   NAV SCROLL EFFECT
+================================================================ */
+function initNavScroll() {
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+}
+
+/* ================================================================
+   DARK MODE
+================================================================ */
+function initTheme() {
+  const toggle = document.getElementById('theme-toggle');
+  const sun = document.getElementById('icon-sun');
+  const moon = document.getElementById('icon-moon');
+
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = saved === 'dark' || (!saved && prefersDark);
+
+  function setTheme(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    sun.style.display = dark ? 'block' : 'none';
+    moon.style.display = dark ? 'none' : 'block';
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+
+  setTheme(isDark);
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    setTheme(current !== 'dark');
+  });
+}
+
+/* ================================================================
+   HAMBURGER
+================================================================ */
+function initHamburger() {
+  const btn = document.getElementById('nav-hamburger');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  });
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
+/* ================================================================
+   INTERSECTION OBSERVER FOR ANIMATIONS
+================================================================ */
+function initAnimations() {
+  const animObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        animObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-up, .stagger').forEach(el => {
+    animObserver.observe(el);
+  });
+}
+
+/* ================================================================
+   SCROLL PROGRESS BAR
+================================================================ */
+function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+}
+
+/* ================================================================
+   BACK TO TOP
+================================================================ */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ================================================================
+   FOOTER YEAR
+================================================================ */
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+/* ================================================================
+   INIT
+================================================================ */
+initNav();
+initTheme();
+initHamburger();
+initNavScroll();
+initScrollSpy();
+initAnimations();
+initScrollProgress();
+initBackToTop();
+
+// Trigger animations for hero (already in view on load)
+setTimeout(() => {
+  document.querySelectorAll('#hero .stagger, #hero .fade-up').forEach(el => {
+    el.classList.add('visible');
+  });
+}, 100);
+</script>
+</body>
+</html>

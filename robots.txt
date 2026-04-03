@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nabilmh.com/sitemap.xml
