@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Map — Nabil Mosharraf Hossain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <style>
+    :root {
+      --accent:        #6366f1;
+      --accent-dim:    rgba(99,102,241,0.12);
+      --bg:            #f8fafc;
+      --bg-card:       #ffffff;
+      --border:        #e2e8f0;
+      --border-light:  #f1f5f9;
+      --text-primary:  #0f172a;
+      --text-secondary:#475569;
+      --text-muted:    #94a3b8;
+      --shadow-sm:     0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+      --shadow:        0 4px 12px rgba(0,0,0,0.08),0 2px 4px rgba(0,0,0,0.04);
+      --shadow-hover:  0 8px 24px rgba(0,0,0,0.12),0 4px 8px rgba(0,0,0,0.06);
+      --radius:        10px;
+    }
+    [data-theme="dark"] {
+      --bg:            #0b0f1a;
+      --bg-card:       #141b2d;
+      --border:        #1e2d45;
+      --border-light:  #172033;
+      --text-primary:  #f1f5f9;
+      --text-secondary:#94a3b8;
+      --text-muted:    #64748b;
+      --shadow-sm:     0 1px 3px rgba(0,0,0,0.3);
+      --shadow:        0 4px 12px rgba(0,0,0,0.4);
+      --shadow-hover:  0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body {
+      font-family:'Inter',-apple-system,sans-serif;
+      background:var(--bg);
+      color:var(--text-primary);
+      height:100dvh;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      -webkit-font-smoothing:antialiased;
+      transition:background 0.3s,color 0.3s;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      display:flex;align-items:center;gap:10px;
+      padding:9px 16px;
+      background:var(--bg-card);
+      border-bottom:1px solid var(--border);
+      flex-shrink:0;
+      flex-wrap:wrap;
+      z-index:20;
+    }
+    .back-link {
+      display:flex;align-items:center;gap:5px;
+      font-size:0.78rem;font-weight:500;
+      color:var(--text-secondary);text-decoration:none;
+      padding:4px 9px;border:1px solid var(--border);border-radius:7px;
+      transition:all 0.18s;flex-shrink:0;
+    }
+    .back-link:hover{color:var(--accent);border-color:var(--accent)}
+    .topbar-title{font-size:0.82rem;font-weight:600;color:var(--text-primary);flex-shrink:0}
+    .topbar-sep{color:var(--text-muted);font-size:0.72rem}
+
+    .search-wrap{position:relative;flex:1;min-width:140px;max-width:260px}
+    .search-wrap svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none}
+    #search{
+      width:100%;padding:6px 9px 6px 30px;
+      border:1px solid var(--border);border-radius:7px;
+      background:var(--bg);color:var(--text-primary);
+      font-family:inherit;font-size:0.78rem;outline:none;
+      transition:border-color 0.18s;
+    }
+    #search:focus{border-color:var(--accent)}
+    #search::placeholder{color:var(--text-muted)}
+
+    .theme-btn{
+      width:30px;height:30px;border:1px solid var(--border);border-radius:7px;
+      background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;
+      color:var(--text-secondary);transition:all 0.18s;flex-shrink:0;
+    }
+    .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* ── TAG STRIP ── */
+    .tag-strip{
+      display:flex;align-items:center;gap:5px;
+      padding:7px 16px;
+      background:var(--bg-card);
+      border-bottom:1px solid var(--border);
+      overflow-x:auto;flex-shrink:0;
+      scrollbar-width:none;
+    }
+    .tag-strip::-webkit-scrollbar{display:none}
+    .tag-label{
+      font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+      color:var(--text-muted);white-space:nowrap;flex-shrink:0;margin-right:3px;
+    }
+    .tag-pill{
+      padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:500;
+      cursor:pointer;border:1.5px solid var(--border);
+      background:var(--bg-card);color:var(--text-secondary);
+      transition:all 0.15s;white-space:nowrap;flex-shrink:0;
+    }
+    .tag-pill:hover{border-color:var(--accent);color:var(--accent)}
+    .tag-pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .clear-btn{
+      margin-left:auto;padding:3px 9px;border-radius:20px;font-size:0.68rem;font-weight:500;
+      cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);
+      white-space:nowrap;flex-shrink:0;transition:all 0.15s;
+    }
+    .clear-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+    /* ── MAIN CANVAS AREA ── */
+    .main{flex:1;position:relative;overflow:hidden;cursor:grab}
+    .main:active{cursor:grabbing}
+
+    /* SVG edge layer — sits behind cards */
+    #edge-svg{
+      position:absolute;top:0;left:0;
+      width:100%;height:100%;
+      pointer-events:none;
+      overflow:visible;
+    }
+
+    /* HTML cards layer */
+    #cards-layer{
+      position:absolute;top:0;left:0;
+      width:100%;height:100%;
+      pointer-events:none; /* individual cards re-enable */
+    }
+
+    /* ── CARD ── */
+    .work-card{
+      position:absolute;
+      width:156px;
+      background:var(--bg-card);
+      border:1.5px solid var(--border);
+      border-radius:var(--radius);
+      padding:10px 12px;
+      box-shadow:var(--shadow-sm);
+      cursor:pointer;
+      pointer-events:all;
+      user-select:none;
+      transition:box-shadow 0.2s, opacity 0.25s, transform 0.25s, border-color 0.2s;
+      /* top accent strip */
+      border-top-width:3px;
+    }
+    .work-card:hover{
+      box-shadow:var(--shadow-hover);
+      border-color:var(--accent);
+    }
+    .work-card.dimmed{
+      opacity:0.12;
+      pointer-events:none;
+    }
+    .work-card.selected{
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(99,102,241,0.2), var(--shadow-hover);
+    }
+
+    .card-type{
+      font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+      margin-bottom:4px;
+    }
+    .card-title{
+      font-size:0.78rem;font-weight:600;
+      color:var(--text-primary);
+      line-height:1.3;
+      margin-bottom:6px;
+      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+    }
+    .card-tags{
+      display:flex;flex-wrap:wrap;gap:3px;
+    }
+    .card-tag{
+      font-size:0.58rem;font-weight:500;padding:1px 5px;
+      border-radius:6px;background:var(--border-light);color:var(--text-muted);
+      border:1px solid var(--border);
+    }
+
+    /* ── DETAIL PANEL ── */
+    .detail-panel{
+      position:absolute;right:0;top:0;bottom:0;
+      width:270px;
+      background:var(--bg-card);
+      border-left:1px solid var(--border);
+      display:flex;flex-direction:column;overflow-y:auto;
+      transform:translateX(100%);
+      transition:transform 0.25s cubic-bezier(0.4,0,0.2,1);
+      z-index:30;
+      box-shadow:-4px 0 20px rgba(0,0,0,0.06);
+    }
+    .detail-panel.open{transform:translateX(0)}
+    .panel-close{
+      position:absolute;top:10px;right:10px;
+      width:26px;height:26px;border:1px solid var(--border);border-radius:6px;
+      background:transparent;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--text-muted);font-size:0.85rem;
+      transition:all 0.15s;
+    }
+    .panel-close:hover{color:var(--accent);border-color:var(--accent)}
+    .panel-type{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:14px 14px 0;opacity:0.7}
+    .panel-title{font-size:0.95rem;font-weight:700;padding:5px 14px 10px;line-height:1.35;padding-right:36px;color:var(--text-primary)}
+    .panel-hr{height:1px;background:var(--border);margin:0 14px}
+    .panel-desc{font-size:0.78rem;line-height:1.6;color:var(--text-secondary);padding:10px 14px}
+    .panel-tags{display:flex;flex-wrap:wrap;gap:4px;padding:0 14px 10px}
+    .panel-tag{
+      font-size:0.65rem;font-weight:600;padding:2px 7px;border-radius:10px;
+      background:var(--accent-dim);color:var(--accent);cursor:pointer;transition:background 0.15s;
+    }
+    .panel-tag:hover{background:var(--accent);color:#fff}
+    .panel-links{padding:0 14px 14px;display:flex;flex-direction:column;gap:6px}
+    .panel-link{
+      display:flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:500;
+      color:var(--accent);text-decoration:none;
+      padding:6px 10px;border:1px solid var(--accent-dim);border-radius:7px;
+      transition:all 0.15s;
+    }
+    .panel-link:hover{background:var(--accent);color:#fff}
+
+    /* ── LEGEND ── */
+    .legend{
+      position:absolute;bottom:14px;left:14px;
+      background:var(--bg-card);border:1px solid var(--border);border-radius:9px;
+      padding:9px 13px;display:flex;flex-direction:column;gap:5px;
+      font-size:0.68rem;box-shadow:var(--shadow-sm);pointer-events:none;z-index:10;
+    }
+    .legend-title{font-weight:600;color:var(--text-muted);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1px}
+    .legend-item{display:flex;align-items:center;gap:6px;color:var(--text-secondary)}
+    .legend-bar{width:16px;height:3px;border-radius:2px;flex-shrink:0}
+
+    /* count */
+    .count-badge{
+      position:absolute;top:10px;left:50%;transform:translateX(-50%);
+      font-size:0.68rem;color:var(--text-muted);
+      background:var(--bg-card);border:1px solid var(--border);
+      border-radius:20px;padding:3px 11px;pointer-events:none;z-index:10;
+    }
+
+    /* zoom hint */
+    .zoom-hint{
+      position:absolute;bottom:14px;right:14px;
+      font-size:0.65rem;color:var(--text-muted);
+      background:var(--bg-card);border:1px solid var(--border);
+      border-radius:8px;padding:5px 10px;pointer-events:none;z-index:10;
+    }
+
+    .detail-panel::-webkit-scrollbar{width:3px}
+    .detail-panel::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="back-link" id="back-link">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back
+  </a>
+  <span class="topbar-sep">/</span>
+  <span class="topbar-title">Work Map</span>
+
+  <div class="search-wrap">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input id="search" type="text" placeholder="Search…" autocomplete="off"/>
+  </div>
+
+  <button class="theme-btn" id="theme-btn" title="Toggle theme">
+    <svg id="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg id="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</div>
+
+<!-- TAG STRIP -->
+<div class="tag-strip">
+  <span class="tag-label">Filter</span>
+  <div id="tag-pills" style="display:contents"></div>
+  <button class="clear-btn" id="clear-btn">Clear</button>
+</div>
+
+<!-- MAIN -->
+<div class="main" id="main">
+  <svg id="edge-svg"><g id="edge-group"></g></svg>
+  <div id="cards-layer"></div>
+
+  <div class="count-badge" id="count-badge">21 nodes</div>
+  <div class="zoom-hint">Scroll to zoom · Drag to pan</div>
+
+  <!-- legend -->
+  <div class="legend">
+    <div class="legend-title">Type</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#6366f1"></div>Research</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#f59e0b"></div>Achievement</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#10b981"></div>Open Source</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#3b82f6"></div>Publication</div>
+  </div>
+
+  <!-- detail panel -->
+  <div class="detail-panel" id="detail-panel">
+    <button class="panel-close" id="panel-close">✕</button>
+    <div class="panel-type" id="panel-type"></div>
+    <div class="panel-title" id="panel-title"></div>
+    <div class="panel-hr"></div>
+    <div class="panel-desc" id="panel-desc"></div>
+    <div class="panel-tags" id="panel-tags"></div>
+    <div class="panel-links" id="panel-links"></div>
+  </div>
+</div>
+
+<script>
+/* ================================================================
+   DATA
+================================================================ */
+const TYPE_COLOR = {
+  research:    '#6366f1',
+  achievement: '#f59e0b',
+  opensource:  '#10b981',
+  publication: '#3b82f6',
+};
+const TYPE_LABEL = {
+  research: 'Research', achievement: 'Achievement',
+  opensource: 'Open Source', publication: 'Publication',
+};
+
+const NODES = [
+  { id:1,  type:'research',    title:'Quran ASR (WER 0.08)',       desc:'Fine-tuned Meta\'s wav2vec2 for Quran tajweed mispronunciation detection. Evaluated across multiple reciters.',         tags:['AI/ML','Speech','Islamic Tech','Research'],  links:[{label:'Paper',url:'https://doi.org/10.13140/RG.2.2.26323.28965'}] },
+  { id:2,  type:'research',    title:'Force Alignment Pipeline',   desc:'Word-level audio timestamps using Needleman-Wunsch algorithm — borrowed from bioinformatics for Quranic audio sync.', tags:['NLP','Audio','Islamic Tech','Research'],     links:[{label:'Blog Post',url:'https://nabil6391.medium.com/creating-audiobooks-by-aligning-audio-with-text-7027ec39a10'}] },
+  { id:3,  type:'research',    title:'LLM Customer Support 4×',    desc:'Replaced full LLMs with SetFit for Islamic app auto-replies. 4× quality improvement at a fraction of the cost.',     tags:['AI/ML','NLP','Islamic Tech','Research'],     links:[{label:'ADAB Paper',url:'https://www.researchgate.net/publication/398941570'}] },
+  { id:4,  type:'research',    title:'OPUS → CAF Converter',       desc:'40% perf boost in Go audio converter for Apple ecosystem. Optimized with goroutines and efficient transcoding.',      tags:['Performance','Audio','Backend','Golang'],    links:[{label:'Substack',url:'https://nabilmh.substack.com/p/optimizing-my-opus-to-caf-converter'}] },
+  { id:5,  type:'research',    title:'Streaming ASR (KD)',         desc:'Wav2Vec2 knowledge distillation for streaming Quranic ASR. 315M teacher → 22M student. CER 14.2% at 240ms latency.', tags:['AI/ML','Speech','Research'],                links:[] },
+  { id:6,  type:'research',    title:'Seerah-Hadith Mapping',      desc:'LLM-based Islamic narrative linking via vector search. Connected 6,000+ Seerah passages to Hadith corpus.',          tags:['NLP','AI/ML','Islamic Tech','Research'],     links:[{label:'Paper',url:'https://www.researchgate.net/publication/388780641'}] },
+  { id:7,  type:'achievement', title:'AI Trailblazer Award',       desc:'Won Jobstreet by SEEK internal hackathon for AI Interview Prep tool, competing across engineering teams.',           tags:['AI/ML','Mobile','Achievement'],              links:[] },
+  { id:8,  type:'achievement', title:'Screen Load −25%',           desc:'Optimised Jobstreet main screen data pipeline — 25% load time improvement for 2M MAU.',                             tags:['Mobile','Performance','Android'],            links:[{label:'Play Store',url:'https://play.google.com/store/apps/details?id=com.jobstreet.jobstreet'}] },
+  { id:9,  type:'achievement', title:'Photo Picker 4s → 150ms',   desc:'26× speed improvement via Kotlin coroutines, IO threading, lazy batch loading (150 images/batch), and FD reuse.',   tags:['Mobile','Performance','Android'],            links:[] },
+  { id:10, type:'achievement', title:'75% Fewer Bugs (CI/CD)',     desc:'Jenkins pipeline automating 90+ daily UI tests at Photobook Worldwide, slashing regression bugs by 75%.',           tags:['Mobile','Android','DevOps'],                 links:[] },
+  { id:11, type:'achievement', title:'App Size 21MB → 4MB',       desc:'ProGuard, resource shrinking, and targeted optimisation at MyCash Online — 5× size reduction.',                     tags:['Mobile','Performance','Android'],            links:[] },
+  { id:12, type:'achievement', title:'50M Downloads, 2M MAU',     desc:'Scaled Greentech Apps Foundation from 0 to 50M+ downloads across 5+ Islamic apps as Co-Founder & CTO.',             tags:['Leadership','Islamic Tech','Mobile'],         links:[{label:'GTAF',url:'https://gtaf.org'}] },
+  { id:13, type:'achievement', title:'C++ NDK Arabic Rendering',   desc:'Custom C++ NDK solution for correct Arabic text shaping on older Android devices lacking system-level support.',    tags:['Mobile','Android','Islamic Tech'],           links:[] },
+  { id:14, type:'achievement', title:'Jetpack Compose Adoption',   desc:'Led Compose adoption at Photobook — cut feature dev from 3 months to 1.5 months for new photo editor types.',       tags:['Mobile','Android'],                          links:[] },
+  { id:15, type:'opensource',  title:'GraphView (470★)',           desc:'Flutter graph visualisation library — Tree layout, Directed and Layered graph. 11.9k+ pub.dev downloads.',          tags:['Open Source','Flutter','Mobile'],            links:[{label:'GitHub',url:'https://github.com/nabil6391/graphview'},{label:'pub.dev',url:'https://pub.dev/packages/graphview'}] },
+  { id:16, type:'opensource',  title:'FlutterDownloadManager (69★)',desc:'Cross-platform download manager with resumable, parallel, and batch downloads. 4.63k+ pub.dev downloads.',         tags:['Open Source','Flutter','Mobile'],            links:[{label:'GitHub',url:'https://github.com/nabil6391/flutter_download_manager'},{label:'pub.dev',url:'https://pub.dev/packages/flutter_download_manager'}] },
+  { id:17, type:'opensource',  title:'LottieSwipeRefreshLayout',   desc:'Custom Android SwipeRefreshLayout with Lottie animation for delightful pull-to-refresh experiences.',              tags:['Open Source','Android','Mobile'],            links:[{label:'GitHub',url:'https://github.com/nabil6391/LottieSwipeRefreshLayout'}] },
+  { id:18, type:'publication', title:'ADAB Framework (2024)',      desc:'Culturally-aligned automated response generation for Islamic app reviews via ABSA and Hybrid RAG.',                 tags:['Research','NLP','Islamic Tech','AI/ML'],     links:[{label:'ResearchGate',url:'https://www.researchgate.net/publication/398941570'}] },
+  { id:19, type:'publication', title:'Hadith Text Similarity',     desc:'Text similarity algorithms for matching Islamic Hadith documents — evaluated with nDCG and MAP metrics.',           tags:['Research','NLP','Islamic Tech','Writing'],   links:[{label:'Medium',url:'https://nabil6391.medium.com/text-similarity-algorithms-for-matching-islamic-hadith-documents-for-hadith-interlinking-1c8034452727'}] },
+  { id:20, type:'publication', title:'Creating Audiobooks',        desc:'Aligning audio with text for automatic audiobook generation — force alignment for Quran recitation tracks.',        tags:['Audio','NLP','Writing'],                     links:[{label:'Medium',url:'https://nabil6391.medium.com/creating-audiobooks-by-aligning-audio-with-text-7027ec39a10'}] },
+  { id:21, type:'publication', title:'Opus → CAF (Go post)',       desc:'40% perf boost write-up: Go profiling, goroutines, and audio transcoding optimisation for Apple ecosystem.',        tags:['Performance','Backend','Writing','Golang'],  links:[{label:'Substack',url:'https://nabilmh.substack.com/p/optimizing-my-opus-to-caf-converter'}] },
+];
+
+const LINKS = [
+  {source:12,target:1},{source:12,target:2},{source:12,target:3},{source:12,target:13},
+  {source:5,target:1},{source:1,target:18},{source:2,target:20},{source:3,target:18},
+  {source:6,target:19},{source:6,target:18},{source:7,target:8},{source:9,target:10},
+  {source:9,target:14},{source:15,target:16},{source:17,target:15},{source:4,target:21},
+  {source:4,target:2},{source:1,target:6},{source:11,target:9},
+];
+
+/* ================================================================
+   CARD SIZE (used for collision + centering)
+================================================================ */
+const CARD_W = 156, CARD_H = 88;
+const collisionR = Math.sqrt((CARD_W/2)**2 + (CARD_H/2)**2) + 10;
+
+/* ================================================================
+   STATE
+================================================================ */
+let activeTags = new Set();
+let searchQuery = '';
+let panelNode = null;
+
+/* ================================================================
+   THEME
+================================================================ */
+function isDark(){ return document.documentElement.getAttribute('data-theme')==='dark' }
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+if(savedTheme==='dark'||(!savedTheme&&prefersDark)){
+  document.documentElement.setAttribute('data-theme','dark');
+  document.getElementById('icon-sun').style.display='block';
+  document.getElementById('icon-moon').style.display='none';
+}
+document.getElementById('theme-btn').addEventListener('click',()=>{
+  const dark=!isDark();
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  document.getElementById('icon-sun').style.display=dark?'block':'none';
+  document.getElementById('icon-moon').style.display=dark?'none':'block';
+  localStorage.setItem('theme',dark?'dark':'light');
+});
+
+/* hide back link when embedded in iframe */
+if(window.self!==window.top) document.getElementById('back-link').style.display='none';
+
+/* ================================================================
+   TAG PILLS
+================================================================ */
+const allTags = [...new Set(NODES.flatMap(n=>n.tags))].sort();
+const pillContainer = document.getElementById('tag-pills');
+allTags.forEach(tag=>{
+  const btn=document.createElement('button');
+  btn.className='tag-pill';btn.textContent=tag;btn.dataset.tag=tag;
+  btn.addEventListener('click',()=>toggleTag(tag));
+  pillContainer.appendChild(btn);
+});
+document.getElementById('clear-btn').addEventListener('click',()=>{
+  activeTags.clear();updatePills();updateFilter();
+});
+function toggleTag(tag){
+  activeTags.has(tag)?activeTags.delete(tag):activeTags.add(tag);
+  updatePills();updateFilter();
+}
+function updatePills(){
+  document.querySelectorAll('.tag-pill').forEach(p=>p.classList.toggle('active',activeTags.has(p.dataset.tag)));
+}
+
+/* ================================================================
+   SEARCH
+================================================================ */
+document.getElementById('search').addEventListener('input',e=>{
+  searchQuery=e.target.value.toLowerCase().trim();updateFilter();
+});
+
+/* ================================================================
+   MATCH
+================================================================ */
+function matches(n){
+  const tagOk=activeTags.size===0||n.tags.some(t=>activeTags.has(t));
+  const srchOk=!searchQuery||
+    n.title.toLowerCase().includes(searchQuery)||
+    n.desc.toLowerCase().includes(searchQuery)||
+    n.tags.some(t=>t.toLowerCase().includes(searchQuery));
+  return tagOk&&srchOk;
+}
+
+/* ================================================================
+   D3 SETUP
+================================================================ */
+const mainEl = document.getElementById('main');
+const edgeSvg = d3.select('#edge-svg');
+const edgeGroup = d3.select('#edge-group');
+const cardsLayer = document.getElementById('cards-layer');
+
+let W=0,H=0;
+
+/* pan/zoom via CSS transform on a wrapper */
+const wrapper = {x:0,y:0,k:1};
+
+function applyTransform(){
+  edgeGroup.attr('transform',`translate(${wrapper.x},${wrapper.y}) scale(${wrapper.k})`);
+  cardsLayer.style.transform=`translate(${wrapper.x}px,${wrapper.y}px) scale(${wrapper.k})`;
+  cardsLayer.style.transformOrigin='0 0';
+}
+
+/* pan */
+let isPanning=false, panStart={x:0,y:0}, wrapStart={x:0,y:0};
+mainEl.addEventListener('mousedown',e=>{
+  if(e.target===mainEl||e.target===document.getElementById('edge-svg')){
+    isPanning=true;
+    panStart={x:e.clientX,y:e.clientY};
+    wrapStart={x:wrapper.x,y:wrapper.y};
+    closePanel();
+  }
+});
+window.addEventListener('mousemove',e=>{
+  if(!isPanning)return;
+  wrapper.x=wrapStart.x+(e.clientX-panStart.x);
+  wrapper.y=wrapStart.y+(e.clientY-panStart.y);
+  applyTransform();
+});
+window.addEventListener('mouseup',()=>{isPanning=false});
+
+/* zoom via wheel */
+mainEl.addEventListener('wheel',e=>{
+  e.preventDefault();
+  const rect=mainEl.getBoundingClientRect();
+  const mx=e.clientX-rect.left, my=e.clientY-rect.top;
+  const delta=e.deltaY<0?1.1:0.9;
+  const newK=Math.max(0.3,Math.min(3,wrapper.k*delta));
+  wrapper.x=mx-(mx-wrapper.x)*(newK/wrapper.k);
+  wrapper.y=my-(my-wrapper.y)*(newK/wrapper.k);
+  wrapper.k=newK;
+  applyTransform();
+},{passive:false});
+
+/* touch pan/zoom */
+let touches={};
+mainEl.addEventListener('touchstart',e=>{
+  [...e.changedTouches].forEach(t=>{touches[t.identifier]={x:t.clientX,y:t.clientY}});
+  if(e.touches.length===1){
+    isPanning=true;
+    const t=e.touches[0];
+    panStart={x:t.clientX,y:t.clientY};
+    wrapStart={x:wrapper.x,y:wrapper.y};
+  }
+},{passive:true});
+mainEl.addEventListener('touchmove',e=>{
+  e.preventDefault();
+  if(e.touches.length===1&&isPanning){
+    const t=e.touches[0];
+    wrapper.x=wrapStart.x+(t.clientX-panStart.x);
+    wrapper.y=wrapStart.y+(t.clientY-panStart.y);
+    applyTransform();
+  }
+},{passive:false});
+mainEl.addEventListener('touchend',()=>{isPanning=false},{passive:true});
+
+/* resize */
+function resize(){
+  const r=mainEl.getBoundingClientRect();
+  W=r.width;H=r.height;
+  // center on first load
+  if(wrapper.x===0&&wrapper.y===0){wrapper.x=W/2;wrapper.y=H/2;applyTransform();}
+}
+window.addEventListener('resize',resize);
+resize();
+
+/* ================================================================
+   CREATE CARD ELEMENTS
+================================================================ */
+const cardEls = {};
+NODES.forEach(n=>{
+  const div=document.createElement('div');
+  div.className='work-card';
+  div.style.borderTopColor=TYPE_COLOR[n.type];
+  div.innerHTML=`
+    <div class="card-type" style="color:${TYPE_COLOR[n.type]}">${TYPE_LABEL[n.type]}</div>
+    <div class="card-title">${n.title}</div>
+    <div class="card-tags">${n.tags.slice(0,2).map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>
+  `;
+  div.addEventListener('click',e=>{e.stopPropagation();openPanel(n)});
+
+  /* drag */
+  let dragging=false,dragStart={},nodeStart={};
+  div.addEventListener('mousedown',e=>{
+    e.stopPropagation();
+    dragging=true;
+    dragStart={x:e.clientX,y:e.clientY};
+    nodeStart={x:n.x,y:n.y};
+    n.fx=n.x;n.fy=n.y;
+    simulation.alphaTarget(0.3).restart();
+    div.style.zIndex=100;
+  });
+  window.addEventListener('mousemove',e=>{
+    if(!dragging)return;
+    const dx=(e.clientX-dragStart.x)/wrapper.k;
+    const dy=(e.clientY-dragStart.y)/wrapper.k;
+    n.fx=nodeStart.x+dx;n.fy=nodeStart.y+dy;
+  });
+  window.addEventListener('mouseup',()=>{
+    if(dragging){dragging=false;n.fx=null;n.fy=null;simulation.alphaTarget(0);div.style.zIndex='';}
+  });
+
+  cardsLayer.appendChild(div);
+  cardEls[n.id]=div;
+  // initial hidden position
+  div.style.transform='translate(-9999px,-9999px)';
+});
+
+/* ================================================================
+   CREATE EDGE ELEMENTS
+================================================================ */
+const linkSel = edgeGroup.selectAll('line')
+  .data(LINKS)
+  .join('line')
+  .attr('stroke','#94a3b8')
+  .attr('stroke-width',1.2)
+  .attr('stroke-opacity',0.3);
+
+/* ================================================================
+   SIMULATION
+================================================================ */
+const simulation = d3.forceSimulation(NODES)
+  .force('link', d3.forceLink(LINKS).id(d=>d.id).distance(200).strength(0.35))
+  .force('charge', d3.forceManyBody().strength(-600))
+  .force('collide', d3.forceCollide(collisionR))
+  .force('x', d3.forceX(0).strength(0.04))
+  .force('y', d3.forceY(0).strength(0.04))
+  .on('tick', ticked);
+
+function ticked(){
+  NODES.forEach(n=>{
+    const el=cardEls[n.id];
+    el.style.transform=`translate(${n.x-CARD_W/2}px,${n.y-CARD_H/2}px)`;
+  });
+  linkSel
+    .attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
+    .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+}
+
+/* ================================================================
+   FILTER
+================================================================ */
+function updateFilter(){
+  const hasFilter=activeTags.size>0||searchQuery;
+  let matchCount=0;
+  NODES.forEach(n=>{
+    const ok=matches(n);
+    if(ok)matchCount++;
+    const el=cardEls[n.id];
+    el.classList.toggle('dimmed',!ok);
+    el.style.pointerEvents=ok?'all':'none';
+  });
+  document.getElementById('count-badge').textContent=
+    matchCount===NODES.length?`${NODES.length} nodes`:`${matchCount} / ${NODES.length} nodes`;
+
+  linkSel.transition().duration(250)
+    .attr('stroke-opacity',d=>matches(d.source)&&matches(d.target)?0.3:0.04);
+
+  // re-cluster: pull matches to center, push others out
+  simulation
+    .force('x',d3.forceX(d=>matches(d)?0:(Math.random()>0.5?700:-700)).strength(d=>matches(d)?(hasFilter?0.18:0.04):0.06))
+    .force('y',d3.forceY(d=>matches(d)?0:(Math.random()>0.5?450:-450)).strength(d=>matches(d)?(hasFilter?0.18:0.04):0.06))
+    .alpha(0.5).restart();
+}
+
+/* ================================================================
+   DETAIL PANEL
+================================================================ */
+function openPanel(n){
+  panelNode=n;
+  document.getElementById('panel-type').textContent=TYPE_LABEL[n.type];
+  document.getElementById('panel-type').style.color=TYPE_COLOR[n.type];
+  document.getElementById('panel-title').textContent=n.title;
+  document.getElementById('panel-desc').textContent=n.desc;
+
+  const tagsEl=document.getElementById('panel-tags');
+  tagsEl.innerHTML='';
+  n.tags.forEach(t=>{
+    const s=document.createElement('span');s.className='panel-tag';s.textContent=t;
+    s.addEventListener('click',()=>{if(!activeTags.has(t)){activeTags.add(t);updatePills();updateFilter();}});
+    tagsEl.appendChild(s);
+  });
+
+  const linksEl=document.getElementById('panel-links');
+  linksEl.innerHTML='';
+  (n.links||[]).forEach(l=>{
+    const a=document.createElement('a');a.className='panel-link';
+    a.href=l.url;a.target='_blank';a.rel='noopener noreferrer';
+    a.innerHTML=`<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>${l.label}`;
+    linksEl.appendChild(a);
+  });
+
+  Object.values(cardEls).forEach(el=>el.classList.remove('selected'));
+  cardEls[n.id].classList.add('selected');
+  document.getElementById('detail-panel').classList.add('open');
+}
+function closePanel(){
+  document.getElementById('detail-panel').classList.remove('open');
+  Object.values(cardEls).forEach(el=>el.classList.remove('selected'));
+  panelNode=null;
+}
+document.getElementById('panel-close').addEventListener('click',closePanel);
+mainEl.addEventListener('click',closePanel);
+</script>
+</body>
+</html>
