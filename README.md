@@ -5,7 +5,7 @@ Personal portfolio and resume website for Nabil Mosharraf Hossain (AI/ML Researc
 ## Folder Structure
 
 - `index.html` — Main portfolio page
-- `graph.html` / `vission/` — Additional pages/visualizations
+- `graph.html` / `vision/` — Additional pages/visualizations
 - `chats/` — Chat history or chat-related content
 - `progress/` / `progress.md` — Session progress tracking
 - `DEPLOYMENT.md` — Deployment notes
