@@ -6,3 +6,5 @@ DEPLOYMENT.md
 
 # OS
 .DS_Store
+.vercel
+.env*

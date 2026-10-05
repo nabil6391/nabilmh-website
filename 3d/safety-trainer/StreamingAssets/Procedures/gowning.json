@@ -1,0 +1,99 @@
+{
+  "id": "SOP-HYG-002",
+  "title": "Hygiene Entry: Gowning for the Production Area",
+  "version": "2.0",
+  "model": "GowningRoom",
+  "focus": "bench",
+  "camDist": 4.9,
+  "passMark": 3,
+  "steps": [
+    {
+      "targetId": "wash",
+      "label": "Handwash tap",
+      "instruction": "Wash your hands at the sink for at least 20 seconds.",
+      "hazard": "Hands carry the most contamination into production.",
+      "wrongHint": "Wash hands first, before touching any clean-side item."
+    },
+    {
+      "targetId": "sanitise",
+      "label": "Sanitiser",
+      "instruction": "Sanitise your hands from the wall dispenser and let them dry.",
+      "hazard": "Wet hands transfer contamination to the coat.",
+      "wrongHint": "Sanitise after washing, before gowning."
+    },
+    {
+      "targetId": "coat",
+      "label": "Clean coat",
+      "instruction": "Take a clean coat from the rail and put it on.",
+      "hazard": "Street clothing sheds fibres and particles.",
+      "wrongHint": "Put the coat on after hand hygiene, before footwear."
+    },
+    {
+      "targetId": "boots",
+      "label": "Site boots",
+      "instruction": "Sit on the bench and change into site boots, swinging your legs over the line.",
+      "hazard": "Dirty-side shoes must never touch the clean-side floor.",
+      "wrongHint": "Change footwear after the coat, and before gloves."
+    },
+    {
+      "targetId": "gloves",
+      "label": "Glove dispenser",
+      "instruction": "Put on a fresh pair of gloves. This is the last garment.",
+      "hazard": "Gloves put on early get contaminated while gowning.",
+      "wrongHint": "Gloves go on last, once everything else is fitted."
+    },
+    {
+      "targetId": "interlock",
+      "label": "Interlock button",
+      "instruction": "Press the interlock button to enter the production area.",
+      "hazard": "Opening both doors at once breaks the air-pressure barrier.",
+      "wrongHint": "Only press the interlock once fully gowned."
+    }
+  ],
+  "quiz": [
+    {
+      "text": "Which item goes on last?",
+      "options": [
+        "Coat",
+        "Boots",
+        "Gloves",
+        "Hair net"
+      ],
+      "correct": 2,
+      "ref": "SOP-HYG-002 s3.5"
+    },
+    {
+      "text": "Where must dirty-side shoes stay?",
+      "options": [
+        "Anywhere in the room",
+        "On the dirty side of the line",
+        "On the bench",
+        "Under the sink"
+      ],
+      "correct": 1,
+      "ref": "SOP-HYG-002 s3.4"
+    },
+    {
+      "text": "Minimum handwash time?",
+      "options": [
+        "5 seconds",
+        "10 seconds",
+        "20 seconds",
+        "60 seconds"
+      ],
+      "correct": 2,
+      "ref": "SOP-HYG-002 s3.1"
+    },
+    {
+      "text": "You touch your face after gloving. What now?",
+      "options": [
+        "Carry on",
+        "Wipe gloves on the coat",
+        "Change gloves and re-sanitise",
+        "Ignore if gloves look clean"
+      ],
+      "correct": 2,
+      "ref": "SOP-HYG-002 s5.2"
+    }
+  ]
+}
