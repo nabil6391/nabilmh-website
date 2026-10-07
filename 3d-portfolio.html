@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3D &amp; Game Portfolio — Nabil Mosharraf Hossain</title>
-<meta name="description" content="3D and game projects by Nabil Mosharraf Hossain: a Unity safety-training simulation, Three.js family games and a Defold mobile runner.">
+<meta name="description" content="3D and game projects by Nabil Mosharraf Hossain: a Unity safety-training simulation, Three.js family games, a Defold mobile runner, and a Three.js home layout planner.">
 <link rel="canonical" href="https://nabilmh.com/3d-portfolio.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -278,7 +278,7 @@
     @media(max-width:640px){.hero3d h1{font-size:1.8rem}.shots-2:not(.phone),.shots-4,.shots-3{grid-template-columns:1fr}}
 </style></head><body>
 <nav id="main-nav"><div class="nav-inner"><a href="index.html" class="nav-logo">Nabil<span>.</span></a>
-<div class="nav-links"><a href="index.html">Home</a><a href="#safety">Unity</a><a href="#gowning">Gowning (Three.js)</a><a href="#ummah">Ummah Kids Games</a><a href="#beat">Beat Runner</a></div>
+<div class="nav-links"><a href="index.html">Home</a><a href="#safety">Unity</a><a href="#gowning">Gowning (Three.js)</a><a href="#ummah">Ummah Kids Games</a><a href="#beat">Beat Runner</a><a href="#planner">Home Planner</a></div>
 <div class="nav-actions"><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◐</button></div></div></nav>
 <header class="hero3d"><div class="container"><div class="section-label">3D &amp; games</div>
 <h1>Interactive 3D projects</h1>
@@ -298,6 +298,10 @@
   <div class="shots shots-2 phone"><img src="3d/img/beat_runner_play.jpg" alt="Beat Runner gameplay" loading="lazy"><img src="3d/img/beat_runner.jpg" alt="Beat Runner home screen" loading="lazy"></div>
   <div class="proj-body"><div class="section-label">Defold · mobile rhythm runner</div><h2 class="proj-title">Beat Runner</h2>
   <p>A three-lane rhythm runner built in Defold for iOS, Android, HTML5 and desktop from one codebase. Features a curved-world vertex shader (the track rolls away under a globe horizon), roof-running ramps, composed obstacle props and a full meta layer: daily login, missions, seasons, store and events.</p><h3>Technologies</h3><div class="tag-group"><span class="tag">Defold</span><span class="tag">Lua</span><span class="tag">GLSL vertex shaders</span><span class="tag">glTF / GLB</span><span class="tag">Blender (headless asset conversion)</span><span class="tag">WebAssembly</span><span class="tag">iOS · Android · HTML5</span></div><div class="links"><a class="btn btn-primary" href="https://nabil6391.github.io/beat-runner-web/" target="_blank" rel="noopener noreferrer">Play in browser &rarr;</a></div></div></article>
+<article class="project" id="planner">
+  <div class="shots shots-3"><img src="3d/img/planner_a1_3d.jpg" alt="Home Planner: furnished condo floor plan in 3D" loading="lazy"><img src="3d/img/planner_a1_top.jpg" alt="Home Planner: top-down view with collision and clearance checks" loading="lazy"><img src="3d/img/planner_terrace.jpg" alt="Home Planner: two-storey terrace house floors side by side" loading="lazy"></div>
+  <div class="proj-body"><div class="section-label">Three.js · interactive planning tool</div><h2 class="proj-title">Home Planner</h2>
+  <p>A furniture-layout tool built while actually moving house. Real floor plans — traced from developer brochure images with a small Python pipeline — and furniture modelled parametrically in code (no imported assets) are placed in 3D, with live separating-axis collision detection flagging overlaps and blocked clearance (legroom, recline, door swing) as you drag things around, in both 3D and top-down view. Multi-floor units show side by side; everything autosaves and can be exported/imported as JSON.</p><h3>Technologies</h3><div class="tag-group"><span class="tag">Three.js</span><span class="tag">Vite</span><span class="tag">Parametric 3D geometry</span><span class="tag">Separating-axis collision detection</span><span class="tag">Python (NumPy / SciPy / Pillow)</span><span class="tag">Playwright (screenshot QA)</span><span class="tag">GitHub Pages</span></div><div class="links"><a class="btn btn-primary" href="https://nabil6391.github.io/home-planner/" target="_blank" rel="noopener noreferrer">Try it in browser &rarr;</a></div></div></article>
 </main>
 <footer>&copy; <span id="y"></span> Nabil Mosharraf Hossain &middot; <a href="index.html">nabilmh.com</a></footer>
 <script>
