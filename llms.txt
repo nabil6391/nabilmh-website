@@ -15,9 +15,6 @@
 - [Substack](https://nabilmh.substack.com/)
 
 ## Articles
-- [Making an Open Graph image with headless Chromium and no imaging library](https://nabilmh.com/blog/og-image-headless-chromium-no-imaging-library/)
-- [Turning Medium and Substack RSS feeds into static pages](https://nabilmh.com/blog/republishing-medium-and-substack-as-static-pages/)
-- [A 15-minute SEO audit of my own site with curl](https://nabilmh.com/blog/seo-audit-of-my-own-site-with-curl/)
 - [The 30% Wardrobe Hypothesis: Building a Personal Clothes Tracking System](https://nabilmh.com/blog/the-30-wardrobe-hypothesis-building/)
 - [Optimizing my Opus to CAF Converter in Go](https://nabilmh.com/blog/optimizing-my-opus-to-caf-converter/)
 - [Developer’s Guide: Avoiding Common Mistakes and Following Best Practices](https://nabilmh.com/blog/developers-guide-avoiding-common-mistakes-and-following-best-practices/)
