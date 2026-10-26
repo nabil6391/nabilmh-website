@@ -1,0 +1,14 @@
+# Nabil Mosharraf Hossain
+
+> AI/ML researcher and software engineer based in Kuala Lumpur, Malaysia. Works on speech recognition, NLP and Islamic technology; co-founder of Greentech Apps Foundation (GTAF).
+
+## Pages
+- [Home / portfolio](https://nabilmh.com/): research, experience, publications and open-source work
+- [3D & game portfolio](https://nabilmh.com/3d-portfolio.html): interactive 3D and game projects
+- [Resume (PDF)](https://nabilmh.com/Resume%20Nabil%20Mosharraf%20Hossain.pdf)
+
+## Elsewhere
+- [GitHub](https://github.com/nabil6391)
+- [LinkedIn](https://www.linkedin.com/in/nabil6391/)
+- [Medium](https://nabil6391.medium.com/)
+- [Substack](https://nabilmh.substack.com/)
