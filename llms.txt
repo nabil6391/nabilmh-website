@@ -5,6 +5,7 @@
 ## Pages
 - [Home / portfolio](https://nabilmh.com/): research, experience, publications and open-source work
 - [3D & game portfolio](https://nabilmh.com/3d-portfolio.html): interactive 3D and game projects
+- [Writing](https://nabilmh.com/blog/): articles on Android, Jetpack Compose, Flutter, Quran audio alignment and side projects
 - [Resume (PDF)](https://nabilmh.com/Resume%20Nabil%20Mosharraf%20Hossain.pdf)
 
 ## Elsewhere
@@ -12,3 +13,17 @@
 - [LinkedIn](https://www.linkedin.com/in/nabil6391/)
 - [Medium](https://nabil6391.medium.com/)
 - [Substack](https://nabilmh.substack.com/)
+
+## Articles
+- [The 30% Wardrobe Hypothesis: Building a Personal Clothes Tracking System](https://nabilmh.com/blog/the-30-wardrobe-hypothesis-building/)
+- [Optimizing my Opus to CAF Converter in Go](https://nabilmh.com/blog/optimizing-my-opus-to-caf-converter/)
+- [Developer’s Guide: Avoiding Common Mistakes and Following Best Practices](https://nabilmh.com/blog/developers-guide-avoiding-common-mistakes-and-following-best-practices/)
+- [Compose Basics and Dos and donts](https://nabilmh.com/blog/compose-basics-and-dos-and-donts/)
+- [Creating Audiobooks by aligning Audio with text](https://nabilmh.com/blog/creating-audiobooks-by-aligning-audio-with-text/)
+- [Easy Android ListView Pagination using Jetpack Compose](https://nabilmh.com/blog/easy-android-listview-pagination-using-jetpack-compose/)
+- [Jetpack Compose: LottieSwipeRefreshIndicator](https://nabilmh.com/blog/jetpack-compose-lottieswiperefreshindicator/)
+- [Extract all strings from dart to arb in Flutter](https://nabilmh.com/blog/easy-way-to-extract-all-strings-to-arb-in-flutter/)
+- [Comparison of string encryption performance using symmetric methods in Android](https://nabilmh.com/blog/comparison-of-string-encryption-performance-using-asymmetric-methods-i/)
+- [LottieSwipeRefreshLayout](https://nabilmh.com/blog/lottieswiperefreshlayout/)
+- [Things I learned while developing Flutter GraphView widget with MultiChildRenderObject](https://nabilmh.com/blog/things-i-learned-while-developing-flutter-graphview-widget-with-multic/)
+- [Flutter ScrollablePositionedList: Scroll to a position in listview](https://nabilmh.com/blog/flutter-scrollablepositionedlist-scroll-to-a-position-in-listview/)

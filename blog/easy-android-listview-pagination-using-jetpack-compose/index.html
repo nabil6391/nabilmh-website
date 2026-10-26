@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Easy Android ListView Pagination using Jetpack Compose — Nabil Mosharraf Hossain</title><meta name="description" content="Need to list items on an Android screen with scroll-based pagination? Here’s a quick guide. Lets (sc)roll…."><link rel="canonical" href="https://nabilmh.com/blog/easy-android-listview-pagination-using-jetpack-compose/">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="Easy Android ListView Pagination using Jetpack Compose — Nabil Mosharraf Hossain"><meta property="og:description" content="Need to list items on an Android screen with scroll-based pagination? Here’s a quick guide. Lets (sc)roll…."><meta property="og:url" content="https://nabilmh.com/blog/easy-android-listview-pagination-using-jetpack-compose/"><meta property="og:type" content="article"><meta property="og:image" content="https://nabilmh.com/og-image.png"><meta property="og:site_name" content="Nabil Mosharraf Hossain">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Easy Android ListView Pagination using Jetpack Compose — Nabil Mosharraf Hossain"><meta name="twitter:description" content="Need to list items on an Android screen with scroll-based pagination? Here’s a quick guide. Lets (sc)roll…."><meta name="twitter:image" content="https://nabilmh.com/og-image.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Easy Android ListView Pagination using Jetpack Compose", "datePublished": "2022-04-14", "dateModified": "2026-10-26", "author": {"@type": "Person", "name": "Nabil Mosharraf Hossain", "url": "https://nabilmh.com"}, "mainEntityOfPage": "https://nabilmh.com/blog/easy-android-listview-pagination-using-jetpack-compose/", "image": "https://nabilmh.com/og-image.png", "description": "Need to list items on an Android screen with scroll-based pagination? Here\u2019s a quick guide. Lets (sc)roll\u2026."}</script><style>
+:root{--bg:#fff;--fg:#0f172a;--mut:#64748b;--acc:#6366f1;--card:#f8fafc;--bd:#e2e8f0;--code:#f1f5f9}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1020;--fg:#e2e8f0;--mut:#94a3b8;--acc:#818cf8;--card:#111833;--bd:#1f2a4a;--code:#111833}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}header.site,footer.site{max-width:720px;margin:0 auto;padding:20px 20px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-size:15px}
+header.site a{color:var(--fg);text-decoration:none;font-weight:600}header.site a.m{color:var(--mut);font-weight:400}
+main{max-width:720px;margin:0 auto;padding:8px 20px 56px}h1{font-size:2rem;line-height:1.25;margin:.4em 0 .2em}h2{font-size:1.4rem;margin:1.8em 0 .4em;line-height:1.3}h3{font-size:1.15rem;margin:1.5em 0 .3em}
+.meta{color:var(--mut);font-size:14px;margin-bottom:1.6em}.note{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--mut);margin:1.2em 0}
+pre{background:var(--code);border:1px solid var(--bd);border-radius:8px;padding:14px;overflow-x:auto;font-size:14px;line-height:1.5}code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}p code,li code{background:var(--code);padding:1px 5px;border-radius:4px}
+img{max-width:100%;height:auto;border-radius:6px}figure{margin:1.4em 0}figcaption{font-size:13.5px;color:var(--mut);text-align:center}blockquote{margin:1.2em 0;padding:2px 16px;border-left:3px solid var(--acc);color:var(--mut)}
+ul.posts{list-style:none;padding:0}ul.posts li{padding:16px 0;border-bottom:1px solid var(--bd)}ul.posts a.t{font-size:1.15rem;font-weight:600;text-decoration:none}ul.posts p{margin:.3em 0 0;color:var(--mut);font-size:15px;line-height:1.5}
+footer.site{color:var(--mut);border-top:1px solid var(--bd);margin-top:20px}
+</style></head><body><header class="site"><a href="/">Nabil Mosharraf Hossain</a><a class="m" href="/blog/">Writing</a><a class="m" href="/3d-portfolio.html">3D &amp; Games</a></header><main><article><h1>Easy Android ListView Pagination using Jetpack Compose</h1><div class="meta">14 April 2022 · 4 min read</div><div class="note">Originally published on <a href="https://nabil6391.medium.com/easy-android-listview-pagination-using-jetpack-compose-267472f07929">Medium</a> in April 2022. It was written in 2022, so library versions and APIs may have changed since; check current docs before copying code.</div><p>Need to list items on an Android screen with scroll-based pagination? Here’s a quick guide. Lets (sc)roll….</p><p><strong>Jetpack Compose</strong> is a <strong>modern framework</strong> for creating native UI with composable functions on Android. It makes Android UI development easier and faster. With less code, powerful tools, and intuitive Kotlin APIs, you can quickly bring your project to life.</p><p>At <strong>Photobook</strong>, we were an early adopter of Jetpack Compose after it exited beta phase. We had to make a backend configurable home screen, which became very easy using Jetpack Compose.</p><p>Today we will show you how to implement a ListView with pagination support by just using the Jetpack Compose default library.</p><h2>Why Pagination?</h2><p>Lists are frequently long, yet users only view a subset of them. As a result, loading every single list item at once is pointless. This is where the concept of pagination comes in handy. So long lists must be <strong>divided</strong> into pages and loaded one at a time.</p><p>One case uses the <a href="https://medium.com/simform-engineering/list-view-with-pagination-using-jetpack-compose-e131174eac8e" rel="noopener">Paging Library 3.0 to built ListView with pagination</a>, but we will show you there is no need to use the Paging library.</p><h2>Normal Lazy List in Jetpack Compose</h2><p>There is LazyColumn composable. It takes a list of items and builds each item on demand.</p><pre><em>LazyColumn</em> <strong>{
+    </strong>items(state.data.size) <strong>{
+        </strong><em>ItemComposable</em>(state.data[<strong>it</strong>], onItemClicked)
+    <strong>}
+</strong>
+<strong>}</strong></pre><h2>When to Load More Data</h2><p>When a user scrolls to the end of the list, we should fetch more data and then show it to the user. For this, we can pass a <strong><em>lazyListState </em></strong>to the LazyColumn so that we can listen to scroll state changes</p><pre>val listState = <em>rememberLazyListState</em>()</pre><pre><em>LazyColumn</em>(state = listState) <strong>{
+    </strong>items(state.data.size) <strong>{
+        </strong><em>ItemComposable</em>(state.data[<strong>it</strong>], onItemClicked)
+    <strong>}
+</strong>
+<strong>}</strong></pre><p>Now its time to check if the user has scrolled to the end of the list. We can do this by checking if the visible items are the last ones of the list.</p><pre>val isScrollToEnd by <em>remember </em><strong>{
+    </strong><em>derivedStateOf </em><strong>{
+        </strong>listState.layoutInfo.visibleItemsInfo.lastOrNull()?.index == listState.layoutInfo.totalItemsCount - 1
+    <strong>}
+}</strong></pre><p>So once the user scrolls to end , we just load more data</p><pre>if (isScrollToEnd) {
+    onLoadMore()
+}</pre><p><strong>Using View State Pattern</strong></p><p>Lets move back a bit, thinking about the states</p><p>So we have :</p><blockquote>State 1: User Opens Page -&gt;Initial List Loaded</blockquote><blockquote>State 2: User Scrolls to end of list -&gt; Initial List + loading More Indicator</blockquote><blockquote>State 3: Loading More data done -&gt; Initial List + New Data List</blockquote><blockquote>State 4 -&gt; Empty State</blockquote><blockquote>State 5 -&gt; Initial Loading State</blockquote><figure><img src="/blog/img/easy-android-listview-pagination-using-jetpack-compose/1.png" alt="" loading="lazy"><figcaption>State 1, 2, 3</figcaption></figure><p>That is why it is wise to separate the view into different states using <strong>kotlin sealed classes</strong></p><pre>sealed class ViewState {
+    object EmptyScreen : ViewState()
+    data class Loaded(val data: List&lt;String&gt;, val loadingMore: Boolean) : ViewState()
+    object Loading : ViewState()
+}</pre><blockquote>Loaded State -&gt; State 1 to 3</blockquote><blockquote>EmptyScreen -&gt; State 4</blockquote><blockquote>Loading -&gt; State 5</blockquote><p>Using sealed classes, we can differentiate our UI state very easily like this</p><pre>@Composable
+fun ContentComposable(
+    state: ViewModel.ViewState?,
+    onLoadMore: () -&gt; Unit,
+    onItemClicked: () -&gt; Unit,
+) {
+    when (state) {
+        is ViewModel.ViewState.EmptyScreen -&gt; {<em>
+            Text</em>("Empty Screen")
+        }
+        is ViewModel.ViewState.Loaded -&gt; {
+            <em>LoadedComposable</em>(state, onLoadMore, onItemClicked)
+        }
+        ViewModel.ViewState.Loading -&gt; {<em>
+            Text</em>("Initial Loading")
+        }
+    }
+}</pre><h3>Final Loaded State.</h3><p>The function onLoadMore fetches the data so it is important we do not call the function while we are still fetching the data. So we check if the state is still loadingMore or not.</p><p>We also very easily show how easily we can show a circular progress bar at the bottom of the list when the List is loading more data. Something like this would have been very complex to do using RecyclerViews!</p><pre>@Composable
+private fun LoadedComposable(
+    state: ViewModel.ViewState.Loaded,
+    onLoadMore: () -&gt; Unit,
+    onItemClicked: () -&gt; Unit
+) {<em>
+    </em>val listState = <em>rememberLazyListState</em>()
+
+    val isScrollToEnd by <em>remember </em><strong>{
+        </strong><em>derivedStateOf </em><strong>{
+            </strong>listState.layoutInfo.visibleItemsInfo.lastOrNull()?.index == listState.layoutInfo.totalItemsCount - 1
+        <strong>}
+    }
+
+    </strong>if (isScrollToEnd &amp;&amp; !state.loadingMore) {
+        onLoadMore()
+    }
+    <em>LazyColumn</em>(state = listState) <strong>{
+        </strong>items(state.data.size) <strong>{
+            </strong><em>ItemComposable</em>(state.data[<strong>it</strong>], onItemClicked)
+        <strong>}
+
+        </strong>if (state.loadingMore) {
+            item <strong>{
+                </strong><em>CircularProgressIndicator</em>(color = Color.Red)
+            <strong>}
+        </strong>}
+    <strong>}
+</strong>}</pre><h2>ViewModel Layer</h2><p>So lets have a look how to store the data and fetch the call.</p><p>We store the lists in a mutable list. We also store the current page the user is at, by default which is 1.</p><pre>private val lists = mutableListOf&lt;String&gt;()
+private var pageNo = 1</pre><p>and here is the load more function:</p><p>We show loaded state with loading more true first. Then we call the api. Then we append the newData to the existing list. Finally we set our viewstate value to Loaded with loadingMore false.</p><pre>fun onLoadMore() {
+    if (!(viewStateLiveData.value as SearchViewState.Loaded).loadingMore) {
+    pageNo++
+    viewStateLiveData.value = SearchViewState.Loaded(lists, true)
+    val newData = getData(pageNo) // Api call
+    lists.addAll(searchData)
+    _viewStateLiveData.value = SearchViewState.Loaded(lists, false)<strong>
+</strong>}
+}</pre><p>And thats <strong>ALL.</strong></p><p>Thanks for spending time with us. <br>LinkedIn: <a href="https://www.linkedin.com/in/nabil6391/" rel="noopener">https://www.linkedin.com/in/nabil6391/</a></p><p>This post was originally published in the <a href="https://tech.photobookworldwide.com/articles/android_listview/" rel="noopener">photobook tech blog</a>:</p></article></main><footer class="site"><span>© Nabil Mosharraf Hossain · <a href="/">Home</a> · <a href="https://github.com/nabil6391">GitHub</a> · <a href="https://www.linkedin.com/in/nabil6391/">LinkedIn</a></span></footer></body></html>

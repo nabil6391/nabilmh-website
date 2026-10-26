@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Things I learned while developing Flutter GraphView widget with MultiChildRenderObject — Nabil Mosharraf Hossain</title><meta name="description" content="We say, In Flutter, everything is a widget. The Widget tree is a structure that represents how our widgets are organized. So I wanted to display my…"><link rel="canonical" href="https://nabilmh.com/blog/things-i-learned-while-developing-flutter-graphview-widget-with-multic/">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="Things I learned while developing Flutter GraphView widget with MultiChildRenderObject — Nabil Mosharraf Hossain"><meta property="og:description" content="We say, In Flutter, everything is a widget. The Widget tree is a structure that represents how our widgets are organized. So I wanted to display my…"><meta property="og:url" content="https://nabilmh.com/blog/things-i-learned-while-developing-flutter-graphview-widget-with-multic/"><meta property="og:type" content="article"><meta property="og:image" content="https://nabilmh.com/og-image.png"><meta property="og:site_name" content="Nabil Mosharraf Hossain">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Things I learned while developing Flutter GraphView widget with MultiChildRenderObject — Nabil Mosharraf Hossain"><meta name="twitter:description" content="We say, In Flutter, everything is a widget. The Widget tree is a structure that represents how our widgets are organized. So I wanted to display my…"><meta name="twitter:image" content="https://nabilmh.com/og-image.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Things I learned while developing Flutter GraphView widget with MultiChildRenderObject", "datePublished": "2020-08-17", "dateModified": "2026-10-26", "author": {"@type": "Person", "name": "Nabil Mosharraf Hossain", "url": "https://nabilmh.com"}, "mainEntityOfPage": "https://nabilmh.com/blog/things-i-learned-while-developing-flutter-graphview-widget-with-multic/", "image": "https://nabilmh.com/og-image.png", "description": "We say, In Flutter, everything is a widget. The Widget tree is a structure that represents how our widgets are organized. So I wanted to display my\u2026"}</script><style>
+:root{--bg:#fff;--fg:#0f172a;--mut:#64748b;--acc:#6366f1;--card:#f8fafc;--bd:#e2e8f0;--code:#f1f5f9}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1020;--fg:#e2e8f0;--mut:#94a3b8;--acc:#818cf8;--card:#111833;--bd:#1f2a4a;--code:#111833}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}header.site,footer.site{max-width:720px;margin:0 auto;padding:20px 20px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-size:15px}
+header.site a{color:var(--fg);text-decoration:none;font-weight:600}header.site a.m{color:var(--mut);font-weight:400}
+main{max-width:720px;margin:0 auto;padding:8px 20px 56px}h1{font-size:2rem;line-height:1.25;margin:.4em 0 .2em}h2{font-size:1.4rem;margin:1.8em 0 .4em;line-height:1.3}h3{font-size:1.15rem;margin:1.5em 0 .3em}
+.meta{color:var(--mut);font-size:14px;margin-bottom:1.6em}.note{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--mut);margin:1.2em 0}
+pre{background:var(--code);border:1px solid var(--bd);border-radius:8px;padding:14px;overflow-x:auto;font-size:14px;line-height:1.5}code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}p code,li code{background:var(--code);padding:1px 5px;border-radius:4px}
+img{max-width:100%;height:auto;border-radius:6px}figure{margin:1.4em 0}figcaption{font-size:13.5px;color:var(--mut);text-align:center}blockquote{margin:1.2em 0;padding:2px 16px;border-left:3px solid var(--acc);color:var(--mut)}
+ul.posts{list-style:none;padding:0}ul.posts li{padding:16px 0;border-bottom:1px solid var(--bd)}ul.posts a.t{font-size:1.15rem;font-weight:600;text-decoration:none}ul.posts p{margin:.3em 0 0;color:var(--mut);font-size:15px;line-height:1.5}
+footer.site{color:var(--mut);border-top:1px solid var(--bd);margin-top:20px}
+</style></head><body><header class="site"><a href="/">Nabil Mosharraf Hossain</a><a class="m" href="/blog/">Writing</a><a class="m" href="/3d-portfolio.html">3D &amp; Games</a></header><main><article><h1>Things I learned while developing Flutter GraphView widget with MultiChildRenderObject</h1><div class="meta">17 August 2020 · 4 min read</div><div class="note">Originally published on <a href="https://nabil6391.medium.com/things-i-learned-while-developing-flutter-graphview-widget-with-multichildrenderobject-a7781eb8e617">Medium</a> in August 2020. It was written in 2020, so library versions and APIs may have changed since; check current docs before copying code.</div><p>We say, In <strong>Flutter</strong>, everything is a widget. The <strong>Widget tree</strong> is a structure that represents how our widgets are organized. So I wanted to display my widgets in a tree layout and alas! I dont see any TreeView in flutter. So I took the daunting task to build one of my own in <a href="https://pub.dev/packages/graphview" rel="noopener">pub.dev</a></p><p>My initial help came from <a href="https://medium.com/flutter-community/pure-flutterclock-face-every-line-customly-drawn-with-pixel-perfect-control-c27cba427801" rel="noopener">article</a> by <a href="https://medium.com/@creativecreatorormaybenot?source=post_page-----c27cba427801----------------------" rel="noopener">creativecreatorormaybenot</a>, who explained how he created a clock using MultiChildRenderObject for flutter clock challange.</p><p>So I set out to think how can we make this view. I initially created using Rows and Columns. But definitely it was not good at performance. So the next question was:</p><h2>Why not Custom Painter?</h2><p>Yes, we could have done that, but it seemed to me that the layouting of the widgets would be much as flexible and less performant. So I opted for using the <strong>MutliChildRenderObject</strong> which lays out its children itself as well we can use custom painting on the canvas.</p><p>So here are the things I learnt:</p><h2>1. We pass our children in the constructor</h2><p>In MultiChildRenderObject, when we the constructor is setup we have to pass the list of Widget that will be laid out. No other manipulation on the children widgets can be easily done after this.</p><pre>GraphView({Key key, @required this.graph, @required this.algorithm, EdgeRenderer renderer})
+    : assert(graph != null),
+      assert(algorithm != null),
+      renderer = renderer ?? ArrowEdgeRenderer(),
+      super(key: key, <strong>children: <em>_extractChildren</em>(graph)</strong>);</pre><h2>2. Laying out: Constraints go down. Sizes go up. Parent sets position</h2><p>The layout process in flutter is very simple, best described in this <a href="https://flutter.dev/docs/development/ui/layout/constraints" rel="noopener">article</a></p><p>The <strong>MultiChildRenderObject</strong> gets its constraints from its parent, by Constraints, it means how much space this widget and its children can have.</p><p>So the main magic is the <strong>performLayout()</strong>.</p><p>You have to ensure that you layout the child, which renders itself and inform our RenderObject. We then get the max Size of our Widget using our custom function <strong>algorithm.run()</strong> and then finally we lay down the childs to their specific coordinates using the <strong>child.offset</strong> parameter.</p><pre>@override
+void performLayout() {
+  if (childCount == 0) {
+    size = constraints.biggest;
+    assert(size.isFinite);
+    return;
+  }
+
+  RenderBox child = firstChild;
+  int position = 0;
+  while (child != null) {
+    final NodeBoxData node = child.parentData as NodeBoxData;
+
+   <strong> child.layout(BoxConstraints.loose(constraints.biggest), </strong>parentUsesSize: true);
+    graph.getNodeAtPosition(position).size = child.size;
+
+    child = node.nextSibling;
+    position++;
+  }
+
+<strong>  size = algorithm.run(graph, 10, 10);</strong>
+
+  child = firstChild;
+  position = 0;
+  while (child != null) {
+    final NodeBoxData node = child.parentData as NodeBoxData;
+
+   <strong> node.offset = graph.getNodeAtPosition(position).position;</strong>
+
+    child = node.nextSibling;
+    position++;
+  }
+}</pre><figure><img src="/blog/img/things-i-learned-while-developing-flutter-graphview-widget-with-multic/1.png" alt="" loading="lazy"><figcaption>Tree Layout in Flutter GraphView</figcaption></figure><h2>3. MarkNeedsLayout()</h2><p>If there is any paramater that you are passing along to the render object, then we can tell our render object that our widget might need to update the layout completely or update only the paint method.</p><p>We need to pass the params to the overriden <strong>updateRenderObject</strong> class.</p><pre>@override
+RenderCustomLayoutBox createRenderObject(BuildContext context) {
+  return RenderCustomLayoutBox(graph, algorithm, paint);
+}
+
+@override
+void updateRenderObject(BuildContext context, RenderCustomLayoutBox renderObject) {
+  renderObject
+    ..graph = graph
+    ..algorithm = algorithm
+    ..customPaint = paint;
+}</pre><p>And then in the rendex widget box we ensure that the values that we set also calls <strong>markNeedsLayout().</strong></p><pre>Graph get graph =&gt; _graph;
+
+set graph(Graph value) {
+  _graph = value;
+ <strong> markNeedsLayout();</strong>
+}</pre><h2>4. Ensure that you offset the canvas</h2><p>So after succesfully putting the nodes to their correct coordinates, it was time to render the arrows/edges. And for some reason it was wrong. The childs were painted by the function <strong>defaultPaint(context, offset);</strong></p><p>So we had to actually translate our canvas according to the offset given by our parent in the overriden paint() class.</p><pre>@override
+void paint(PaintingContext context, Offset offset) {
+  var paint = Paint()
+    ..color = Colors.<em>black
+    </em>..strokeWidth = 3
+    ..style = PaintingStyle.stroke
+    ..strokeCap = StrokeCap.butt;
+
+  <strong>context.canvas.save();
+  context.canvas.translate(offset.dx, offset.dy);</strong>
+
+  _renderer.render(context.canvas, graph, paint);
+
+<strong>  context.canvas.restore();
+
+</strong>  defaultPaint(context, offset);
+}</pre><figure><img src="/blog/img/things-i-learned-while-developing-flutter-graphview-widget-with-multic/2.png" alt="" loading="lazy"><figcaption>Force Directed Graph in Flutter GraphView</figcaption></figure><h2>5. Ensure hitTestChidren() is overridden</h2><p>The final thing I learnt was actually after releasing the inital version of my library. One of the users of my library contacted me via email and said that the Widgets onTap does not work whether is GestureListener or Inkwell. After researching I learnt that I had to override the hitTestChildren() in the RenderWidget as well.</p><pre>@override
+bool hitTestChildren(BoxHitTestResult result, {Offset position}) {
+  return defaultHitTestChildren(result, position: position);
+}</pre><h2>Thats All.</h2><p>I learnt a lot and it feels great that I was able to contribute to a community that I loved to be part of. Hope you enjoy my graphview library.</p><p>Checkout the github: <a href="https://github.com/nabil6391/graphview" rel="noopener">https://github.com/nabil6391/graphview</a></p><p>Checkout in pub.dev <a href="https://pub.dev/packages/graphview" rel="noopener">https://pub.dev/packages/graphview</a></p><p>However I still have a couple of things to learn, hopefully some day in the future:</p><ol><li>RepaintBoundary</li><li>Should I use sliver?</li><li>Animations inside MultiChildRenderObject</li></ol></article></main><footer class="site"><span>© Nabil Mosharraf Hossain · <a href="/">Home</a> · <a href="https://github.com/nabil6391">GitHub</a> · <a href="https://www.linkedin.com/in/nabil6391/">LinkedIn</a></span></footer></body></html>
