@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A 15-minute SEO audit of my own site with curl — Nabil Mosharraf Hossain</title><meta name="description" content="Missing og-image, no favicon, a stale sitemap and a www record pointing at a parking IP. What curl and my analytics API showed about nabilmh.com."><link rel="canonical" href="https://nabilmh.com/blog/seo-audit-of-my-own-site-with-curl/">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="A 15-minute SEO audit of my own site with curl — Nabil Mosharraf Hossain"><meta property="og:description" content="Missing og-image, no favicon, a stale sitemap and a www record pointing at a parking IP. What curl and my analytics API showed about nabilmh.com."><meta property="og:url" content="https://nabilmh.com/blog/seo-audit-of-my-own-site-with-curl/"><meta property="og:type" content="article"><meta property="og:image" content="https://nabilmh.com/og-image.png"><meta property="og:site_name" content="Nabil Mosharraf Hossain">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="A 15-minute SEO audit of my own site with curl — Nabil Mosharraf Hossain"><meta name="twitter:description" content="Missing og-image, no favicon, a stale sitemap and a www record pointing at a parking IP. What curl and my analytics API showed about nabilmh.com."><meta name="twitter:image" content="https://nabilmh.com/og-image.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "A 15-minute SEO audit of my own site with curl", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "author": {"@type": "Person", "name": "Nabil Mosharraf Hossain", "url": "https://nabilmh.com"}, "mainEntityOfPage": "https://nabilmh.com/blog/seo-audit-of-my-own-site-with-curl/", "image": "https://nabilmh.com/og-image.png", "description": "Missing og-image, no favicon, a stale sitemap and a www record pointing at a parking IP. What curl and my analytics API showed about nabilmh.com."}</script><style>
+:root{--bg:#fff;--fg:#0f172a;--mut:#64748b;--acc:#6366f1;--card:#f8fafc;--bd:#e2e8f0;--code:#f1f5f9}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1020;--fg:#e2e8f0;--mut:#94a3b8;--acc:#818cf8;--card:#111833;--bd:#1f2a4a;--code:#111833}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}header.site,footer.site{max-width:720px;margin:0 auto;padding:20px 20px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-size:15px}
+header.site a{color:var(--fg);text-decoration:none;font-weight:600}header.site a.m{color:var(--mut);font-weight:400}
+main{max-width:720px;margin:0 auto;padding:8px 20px 56px}h1{font-size:2rem;line-height:1.25;margin:.4em 0 .2em}h2{font-size:1.4rem;margin:1.8em 0 .4em;line-height:1.3}h3{font-size:1.15rem;margin:1.5em 0 .3em}
+.meta{color:var(--mut);font-size:14px;margin-bottom:1.6em}.note{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--mut);margin:1.2em 0}
+pre{background:var(--code);border:1px solid var(--bd);border-radius:8px;padding:14px;overflow-x:auto;font-size:14px;line-height:1.5}code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}p code,li code{background:var(--code);padding:1px 5px;border-radius:4px}
+img{max-width:100%;height:auto;border-radius:6px}figure{margin:1.4em 0}figcaption{font-size:13.5px;color:var(--mut);text-align:center}blockquote{margin:1.2em 0;padding:2px 16px;border-left:3px solid var(--acc);color:var(--mut)}
+ul.posts{list-style:none;padding:0}ul.posts li{padding:16px 0;border-bottom:1px solid var(--bd)}ul.posts a.t{font-size:1.15rem;font-weight:600;text-decoration:none}ul.posts p{margin:.3em 0 0;color:var(--mut);font-size:15px;line-height:1.5}
+footer.site{color:var(--mut);border-top:1px solid var(--bd);margin-top:20px}
+</style></head><body><header class="site"><a href="/">Nabil Mosharraf Hossain</a><a class="m" href="/blog/">Writing</a><a class="m" href="/3d-portfolio.html">3D &amp; Games</a></header><main><article><h1>A 15-minute SEO audit of my own site with curl</h1><div class="meta">26 October 2026 · 2 min read</div>
+<p>I asked how my site was doing in search. It turned out curl and my own analytics API answered most of it.</p>
+<h2>The files that should exist</h2>
+<pre>for p in robots.txt sitemap.xml llms.txt favicon.ico og-image.png; do
+  printf "%s -&gt; " $p
+  curl -s -o /dev/null -w '%{http_code} %{content_type}\n' https://nabilmh.com/$p
+done</pre>
+<p><code>og-image.png</code> and <code>favicon.ico</code> were both 404. The page's Open Graph tags pointed at an image that did not exist, so shared links had no preview. The sitemap listed one URL, with a last-modified date from April.</p>
+<h2>The page itself</h2>
+<p>Title, description, canonical, Open Graph, Twitter card and JSON-LD were all there. One H1, nine H2s, about 936 words, 87 KB of HTML served with Brotli in 110 ms. Performance was not the problem.</p>
+<h2>The www record</h2>
+<p><code>www.nabilmh.com</code> returned an empty response. The DNS record pointed at a parking IP, proxied through Cloudflare, and the apex domain pointed at Vercel. Nobody had noticed because nobody types the www.</p>
+<h2>What the traffic says</h2>
+<p>My self-hosted analytics (Piqo, with a stats API) says 8 visitors and 13 pageviews in the last 7 days. 75% were direct, and the rest came from LinkedIn, Google Scholar and one small site. Search Console reported 0 impressions. The site is not ranking for anything beyond my own name, which is what you would expect from a single page.</p>
+<h2>My mistake</h2>
+<p>My first pass said the homepage had no internal links. It does. I had searched for hrefs starting with <code>/</code>, and the site uses relative links like <code>href="3d-portfolio.html"</code>. Run <code>grep -o 'href="[^"]*"'</code> before concluding anything about links.</p>
+<h2>What I fixed</h2>
+<p>I generated the missing image and icons, added the pages to the sitemap, added an <code>llms.txt</code>, and republished my old Medium and Substack posts under <a href="/blog/">/blog/</a>. The www record still needs a domain added in Vercel. I will check the numbers again in 30 days.</p>
+<p>Disclosure: Claude Code did most of the typing here. I checked the results by looking at them, and the mistakes below are real ones it made along the way.</p></article></main><footer class="site"><span>© Nabil Mosharraf Hossain · <a href="/">Home</a> · <a href="https://github.com/nabil6391">GitHub</a> · <a href="https://www.linkedin.com/in/nabil6391/">LinkedIn</a></span></footer></body></html>

@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Turning Medium and Substack RSS feeds into static pages — Nabil Mosharraf Hossain</title><meta name="description" content="Both platforms put the full post HTML in their RSS feeds. Notes on what is in there, and the void-tag bug that turned a 24 KB post into 76 words."><link rel="canonical" href="https://nabilmh.com/blog/republishing-medium-and-substack-as-static-pages/">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="Turning Medium and Substack RSS feeds into static pages — Nabil Mosharraf Hossain"><meta property="og:description" content="Both platforms put the full post HTML in their RSS feeds. Notes on what is in there, and the void-tag bug that turned a 24 KB post into 76 words."><meta property="og:url" content="https://nabilmh.com/blog/republishing-medium-and-substack-as-static-pages/"><meta property="og:type" content="article"><meta property="og:image" content="https://nabilmh.com/og-image.png"><meta property="og:site_name" content="Nabil Mosharraf Hossain">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Turning Medium and Substack RSS feeds into static pages — Nabil Mosharraf Hossain"><meta name="twitter:description" content="Both platforms put the full post HTML in their RSS feeds. Notes on what is in there, and the void-tag bug that turned a 24 KB post into 76 words."><meta name="twitter:image" content="https://nabilmh.com/og-image.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Turning Medium and Substack RSS feeds into static pages", "datePublished": "2026-10-26", "dateModified": "2026-10-26", "author": {"@type": "Person", "name": "Nabil Mosharraf Hossain", "url": "https://nabilmh.com"}, "mainEntityOfPage": "https://nabilmh.com/blog/republishing-medium-and-substack-as-static-pages/", "image": "https://nabilmh.com/og-image.png", "description": "Both platforms put the full post HTML in their RSS feeds. Notes on what is in there, and the void-tag bug that turned a 24 KB post into 76 words."}</script><style>
+:root{--bg:#fff;--fg:#0f172a;--mut:#64748b;--acc:#6366f1;--card:#f8fafc;--bd:#e2e8f0;--code:#f1f5f9}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1020;--fg:#e2e8f0;--mut:#94a3b8;--acc:#818cf8;--card:#111833;--bd:#1f2a4a;--code:#111833}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}header.site,footer.site{max-width:720px;margin:0 auto;padding:20px 20px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-size:15px}
+header.site a{color:var(--fg);text-decoration:none;font-weight:600}header.site a.m{color:var(--mut);font-weight:400}
+main{max-width:720px;margin:0 auto;padding:8px 20px 56px}h1{font-size:2rem;line-height:1.25;margin:.4em 0 .2em}h2{font-size:1.4rem;margin:1.8em 0 .4em;line-height:1.3}h3{font-size:1.15rem;margin:1.5em 0 .3em}
+.meta{color:var(--mut);font-size:14px;margin-bottom:1.6em}.note{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;font-size:14.5px;color:var(--mut);margin:1.2em 0}
+pre{background:var(--code);border:1px solid var(--bd);border-radius:8px;padding:14px;overflow-x:auto;font-size:14px;line-height:1.5}code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}p code,li code{background:var(--code);padding:1px 5px;border-radius:4px}
+img{max-width:100%;height:auto;border-radius:6px}figure{margin:1.4em 0}figcaption{font-size:13.5px;color:var(--mut);text-align:center}blockquote{margin:1.2em 0;padding:2px 16px;border-left:3px solid var(--acc);color:var(--mut)}
+ul.posts{list-style:none;padding:0}ul.posts li{padding:16px 0;border-bottom:1px solid var(--bd)}ul.posts a.t{font-size:1.15rem;font-weight:600;text-decoration:none}ul.posts p{margin:.3em 0 0;color:var(--mut);font-size:15px;line-height:1.5}
+footer.site{color:var(--mut);border-top:1px solid var(--bd);margin-top:20px}
+</style></head><body><header class="site"><a href="/">Nabil Mosharraf Hossain</a><a class="m" href="/blog/">Writing</a><a class="m" href="/3d-portfolio.html">3D &amp; Games</a></header><main><article><h1>Turning Medium and Substack RSS feeds into static pages</h1><div class="meta">26 October 2026 · 2 min read</div>
+<p>I wanted my old Medium and Substack posts on my own domain. Both platforms put the full post body in their RSS feeds, inside <code>&lt;content:encoded&gt;</code>:</p>
+<pre>https://&lt;you&gt;.medium.com/feed
+https://&lt;you&gt;.substack.com/feed</pre>
+<h2>What is in the Medium feed</h2>
+<ul>
+<li>Only the latest 10 posts. If you have more, you need the export from Settings.</li>
+<li>A 1&times;1 tracking image from <code>medium.com/_/stat</code> at the end of every post.</li>
+<li>Images hotlinked from <code>cdn-images-1.medium.com</code>, with no file extension in the URL.</li>
+<li>Section headings are <code>&lt;h3&gt;</code>, and the title is repeated as a bold first paragraph. Shift headings up a level once the title becomes the page's <code>&lt;h1&gt;</code>.</li>
+<li>Code blocks come through as plain <code>&lt;pre&gt;</code>, which is the nice part.</li>
+</ul>
+<h2>What is in the Substack feed</h2>
+<ul>
+<li>The subscribe widget: a <code>&lt;form&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code> and inline <code>&lt;svg&gt;</code>.</li>
+<li>A "Thanks for reading &hellip;! Subscribe for free" paragraph.</li>
+<li>Images through <code>substackcdn.com</code> with a long transformation URL.</li>
+</ul>
+<h2>The bug</h2>
+<p>My first sanitizer used Python's <code>HTMLParser</code> with a skip counter: add one on a <code>&lt;form&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code> or <code>&lt;svg&gt;</code> start tag, subtract one on the matching end tag, and drop all text while the counter is above zero.</p>
+<p><code>&lt;input&gt;</code> is a void element. It never has an end tag, so the counter never came back to zero and everything after the subscribe widget silently vanished. A 24 KB post came out as 76 words. After ignoring void tags it was 838.</p>
+<pre>if t in ("input", "source"):   # void elements: no end tag will ever come
+    return
+if t in DROP:
+    self.skip += 1
+    ...</pre>
+<p>The tell was the word count. I now print one for every post and compare it with the original.</p>
+<h2>Smaller things</h2>
+<ul>
+<li>Name downloaded images by sniffing the first bytes (<code>\x89PNG</code>, <code>\xff\xd8\xff</code>), not by the URL.</li>
+<li>Strip <code>utm_*</code> parameters from links.</li>
+<li>Put an "originally published on" note on each page and set the page's canonical to itself. Then point the Medium original at your copy: story settings, Advanced settings, Customize canonical link.</li>
+</ul>
+<p>Disclosure: Claude Code did most of the typing here. I checked the results by looking at them, and the mistakes below are real ones it made along the way.</p></article></main><footer class="site"><span>© Nabil Mosharraf Hossain · <a href="/">Home</a> · <a href="https://github.com/nabil6391">GitHub</a> · <a href="https://www.linkedin.com/in/nabil6391/">LinkedIn</a></span></footer></body></html>
